@@ -10,7 +10,7 @@ export const projects = [
   {
     id: "malika-pos",
     gambar: Proyek1,
-    nama: "Malika Smart Booth POS",
+    nama: "Malika Smart Booth POS System",
     role: "Full-Stack Developer & AI Integration",
     desk: "Production POS with AI function calling — 7 tools connecting Groq Llama 3.3 70B to live sales data, menu analytics, and natural-language ops queries. Serving real transactions.",
     impact: [
@@ -54,7 +54,7 @@ export const projects = [
   {
     id: "dental-wa",
     gambar: Proyek3,
-    nama: "Dental WA Chatbot",
+    nama: "Dental WhatsApp Chatbot",
     role: "RAG & Backend Developer",
     desk: "WhatsApp chatbot for dental clinic scheduling with RAG over Google Sheets, function calling for appointment ops, and anti-hallucination guardrails on time parsing.",
     impact: [
