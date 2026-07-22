@@ -1,0 +1,335 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-ink-50: #fafafa;
+  --color-ink-100: #f4f4f5;
+  --color-ink-200: #e4e4e7;
+  --color-ink-300: #d4d4d8;
+  --color-ink-400: #a1a1aa;
+  --color-ink-500: #71717a;
+  --color-ink-600: #52525b;
+  --color-ink-700: #3f3f46;
+  --color-ink-800: #27272a;
+  --color-ink-900: #18181b;
+  --color-ink-950: #0a0a0a;
+
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed;
+  --color-accent-700: #6d28d9;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: #0a0a0a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.4);
+    color: #fafafa;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  /* ─── Text gradients ─── */
+  .text-gradient {
+    background: linear-gradient(180deg, #fafafa 0%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #a78bfa 0%, #6d28d9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ─── Grid background ─── */
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ─── Ambient gradient orbs ─── */
+  .ambient-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .ambient-bg::before,
+  .ambient-bg::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+    animation: orb-drift 20s ease-in-out infinite alternate;
+  }
+  .ambient-bg::before {
+    width: 600px;
+    height: 600px;
+    top: -10%;
+    left: 10%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  }
+  .ambient-bg::after {
+    width: 500px;
+    height: 500px;
+    bottom: 5%;
+    right: 5%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+    animation-delay: -10s;
+    animation-direction: alternate-reverse;
+  }
+
+  @keyframes orb-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(30px, -20px) scale(1.05); }
+    66%  { transform: translate(-20px, 15px) scale(0.95); }
+    100% { transform: translate(10px, -10px) scale(1.02); }
+  }
+
+  /* ─── Card styles ─── */
+  .card {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.6) 0%, rgba(10, 10, 10, 0.4) 100%);
+    border: 1px solid rgba(63, 63, 70, 0.5);
+    backdrop-filter: blur(12px);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.15), 0 8px 40px -12px rgba(139, 92, 246, 0.2);
+  }
+
+  /* ─── Glow accent ─── */
+  .glow-accent {
+    box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.2), 0 0 40px -10px rgba(139, 92, 246, 0.4);
+  }
+
+  /* ─── Animated border gradient for hero image ─── */
+  .hero-image-border {
+    position: relative;
+  }
+  .hero-image-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 1rem;
+    padding: 2px;
+    background: conic-gradient(
+      from 0deg,
+      rgba(139, 92, 246, 0.6),
+      rgba(124, 58, 237, 0.2),
+      rgba(167, 139, 250, 0.4),
+      rgba(139, 92, 246, 0.1),
+      rgba(109, 40, 217, 0.5),
+      rgba(139, 92, 246, 0.6)
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    animation: border-spin 6s linear infinite;
+    opacity: 0.7;
+  }
+
+  @keyframes border-spin {
+    to { filter: hue-rotate(360deg); }
+  }
+
+  /* ─── Gradient section divider ─── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(139, 92, 246, 0.3) 20%,
+      rgba(167, 139, 250, 0.5) 50%,
+      rgba(139, 92, 246, 0.3) 80%,
+      transparent 100%
+    );
+    border: none;
+  }
+
+  /* ─── Cursor blink ─── */
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .cursor-blink::after {
+    content: "▊";
+    margin-left: 0.1em;
+    color: #a78bfa;
+    animation: blink 1s step-end infinite;
+  }
+
+  /* ─── Fade up animation ─── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* ─── Pulse dot ─── */
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  /* ─── Floating animation for hero image ─── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* ─── Mobile menu overlay ─── */
+  .mobile-menu-enter {
+    animation: menu-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .mobile-menu-exit {
+    animation: menu-slide-out 0.3s cubic-bezier(0.7, 0, 0.84, 0) both;
+  }
+  @keyframes menu-slide-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes menu-slide-out {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+  }
+
+  /* ─── Preloader ─── */
+  .preloader-exit {
+    animation: preloader-fade 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes preloader-fade {
+    to { opacity: 0; transform: scale(1.02); pointer-events: none; }
+  }
+
+  /* ─── Scroll to top button ─── */
+  .scroll-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 40;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(63, 63, 70, 0.6);
+    background: rgba(24, 24, 27, 0.8);
+    backdrop-filter: blur(12px);
+    color: #a1a1aa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+  .scroll-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .scroll-top-btn:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    color: #a78bfa;
+    box-shadow: 0 0 20px -6px rgba(139, 92, 246, 0.3);
+  }
+
+  /* ─── Reveal transition classes ─── */
+  .reveal-base {
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Experience timeline ─── */
+  .timeline-item {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid #27272a;
+    transition: border-color 0.3s ease;
+  }
+  .timeline-item:hover {
+    border-left-color: rgba(139, 92, 246, 0.5);
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0.25rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3f3f46;
+    border: 2px solid #0a0a0a;
+    transition: background 0.3s ease;
+  }
+  .timeline-item:hover::before {
+    background: #8b5cf6;
+  }
+
+  /* ─── Logo glow on hover ─── */
+  .logo-glow:hover .logo-symbol {
+    text-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+  }
+}
