@@ -578,20 +578,6 @@ const App = () => {
               </button>
             </div>
           </form>
-
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-ink-400 font-mono">
-            <a href="https://github.com/HamdanMarzuqi" target="_blank" rel="noreferrer" className="hover:text-accent-400 transition-colors">
-              github.com/HamdanMarzuqi
-            </a>
-            <span className="text-ink-800">·</span>
-            <a href="https://linkedin.com/in/hamdanmarzuqi" target="_blank" rel="noreferrer" className="hover:text-accent-400 transition-colors">
-              linkedin.com/in/hamdanmarzuqi
-            </a>
-            <span className="text-ink-800">·</span>
-            <a href="mailto:hamdan.unisa@gmail.com" className="hover:text-accent-400 transition-colors">
-              hamdan.unisa@gmail.com
-            </a>
-          </div>
         </div>
       </section>
 
