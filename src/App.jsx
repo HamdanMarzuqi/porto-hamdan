@@ -6,7 +6,7 @@ import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiTypescri
 import { projects, stack, aiSkills, experience } from "./data";
 import HeroImage from "/assets/Hamdan_Red_Background.png";
 
-const TYPED_WORDS = ["Web Developer", "Agentic AI Integration", "Franchise Owner-Operator at Malika Kebab", "Open Source Builder"];
+const TYPED_WORDS = ["Web Developer", "Agentic AI Integration"];
 
 const stackIconMap = {
   SiJavascript, SiTypescript, SiNodedotjs, SiReact,
@@ -21,22 +21,19 @@ const useTypewriter = (words, speed = 80, pause = 1800) => {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    if (!words || words.length === 0) return;
-    const safeIdx = wordIdx % words.length;
-    const current = words[safeIdx] || "";
-
+    const current = words[wordIdx];
     const timeout = setTimeout(() => {
       if (!deleting) {
         const next = charIdx + 1;
         setText(current.slice(0, next));
-        if (next >= current.length) {
+        if (next === current.length) {
           setTimeout(() => setDeleting(true), pause);
         } else {
           setCharIdx(next);
         }
       } else {
         const next = charIdx - 1;
-        setText(current.slice(0, Math.max(0, next)));
+        setText(current.slice(0, next));
         if (next <= 0) {
           setDeleting(false);
           setWordIdx((w) => (w + 1) % words.length);
@@ -223,16 +220,13 @@ const App = () => {
                   <FiArrowDown className="transition-transform group-hover:translate-y-0.5" size={14} />
                 </a>
                 <a
-                  href="https://wa.me/6281905554785?text=Halo%20Hamdan%2C%20saya%20tertarik%20dengan%20portfolio%20Tuan."
-                  target="_blank"
-                  rel="noreferrer"
+                  href="#kontak"
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-ink-800 text-ink-200 text-sm font-medium rounded-md hover:border-accent-500/60 hover:text-accent-400 transition-all duration-300"
                 >
                   <span>Get in touch</span>
                   <FiArrowUpRight size={14} />
                 </a>
               </div>
-
               <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
                 {[
                   { num: "4", label: "Production projects" },
@@ -373,7 +367,7 @@ const App = () => {
             </a>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
             {featured.map((p, i) => (
               <ProjectCard key={p.id} project={p} featured index={i} />
             ))}
@@ -493,7 +487,7 @@ const App = () => {
       <div className="section-divider" />
 
       {/* Contact */}
-      <section id="contact" className="py-24 md:py-32">
+      <section id="kontak" className="py-24 md:py-32">
         <div className="container mx-auto max-w-3xl px-6 lg:px-8">
           <div
             ref={kontakHeader.ref}
@@ -509,24 +503,6 @@ const App = () => {
             <p className="mt-4 text-ink-400 max-w-lg mx-auto">
               Open to full-time roles in AI engineering, full-stack development, or contract work on agentic systems.
             </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-            <a
-              href="https://wa.me/6281905554785?text=Halo%20Hamdan%2C%20saya%20tertarik%20dengan%20portfolio%20Tuan."
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2 px-6 py-3 border border-ink-800 bg-ink-900/60 text-ink-100 text-sm font-medium rounded-md hover:border-emerald-500/40 hover:text-emerald-300 transition-all duration-300"
-            >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.057 21.785h-.004c-1.832 0-3.63-.493-5.205-1.428l-.373-.221-3.867 1.013 1.033-3.77-.243-.387a9.864 9.864 0 01-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884 2.641 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm0-19.78c-5.456 0-9.886 4.43-9.886 9.886 0 1.737.464 3.442 1.346 4.957l-1.43 5.235 5.358-1.405a9.78 9.78 0 004.61 1.165c5.456 0 9.886-4.43 9.886-9.886 0-2.641-1.027-5.122-2.892-6.989a9.83 9.83 0 00-6.992-2.963z" />
-              </svg>
-              <span>Chat on WhatsApp</span>
-              <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={14} />
-            </a>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-ink-600">
-              or use the form below
-            </span>
           </div>
 
           <form
@@ -560,7 +536,7 @@ const App = () => {
             <div>
               <label className="block font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">Message</label>
               <textarea
-                name="pesan" rows={4} required placeholder="Tell me about the project or role..."
+                name="pesan" rows={4} required placeholder="Send me a message about anything..."
                 className="w-full bg-transparent border-b border-ink-800 py-2 text-ink-100 placeholder-ink-600 focus:border-accent-500 focus:outline-none transition-colors resize-none"
               ></textarea>
             </div>
@@ -578,6 +554,20 @@ const App = () => {
               </button>
             </div>
           </form>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-ink-400 font-mono">
+            <a href="https://github.com/HamdanMarzuqi" target="_blank" rel="noreferrer" className="hover:text-accent-400 transition-colors">
+              github.com/HamdanMarzuqi
+            </a>
+            <span className="text-ink-800">·</span>
+            <a href="https://linkedin.com/in/hamdanmarzuqi" target="_blank" rel="noreferrer" className="hover:text-accent-400 transition-colors">
+              linkedin.com/in/hamdanmarzuqi
+            </a>
+            <span className="text-ink-800">·</span>
+            <a href="mailto:hamdan.unisa@gmail.com" className="hover:text-accent-400 transition-colors">
+              hamdan.unisa@gmail.com
+            </a>
+          </div>
         </div>
       </section>
 

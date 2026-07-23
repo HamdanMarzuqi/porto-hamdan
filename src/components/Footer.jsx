@@ -23,11 +23,11 @@ const Footer = () => {
             <h4 className="font-mono text-xs uppercase tracking-widest text-ink-500 mb-4">Navigate</h4>
             <ul className="space-y-2 text-sm">
               {[
-                ["#beranda", "Beranda"],
-                ["#tentang", "Tentang"],
-                ["#proyek", "Proyek"],
+                ["#beranda", "Dashboard"],
+                ["#tentang", "About"],
+                ["#proyek", "Project"],
                 ["#skills", "Skills"],
-                ["#kontak", "Kontak"]
+                ["#kontak", "Contact"]
               ].map(([href, label]) => (
                 <li key={href}>
                   <a href={href} className="text-ink-300 hover:text-accent-400 transition-colors">
