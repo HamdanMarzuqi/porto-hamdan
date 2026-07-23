@@ -158,11 +158,11 @@ export const experience = [
   {
     role: "Owner & Operator",
     company: "Malika Kebab",
-    period: "2024 — Present",
+    period: "2021 — Present",
     description: "Operating an F&B business while building its digital systems. End-to-end ownership from inventory to online presence."
   },
   {
-    role: "AI Engineer & Full-Stack Developer",
+    role: "Agentic AI Integration & Web Developer",
     company: "Self-Directed Portfolio",
     period: "2025 — Present",
     description: "4 production-deployed systems — POS with AI, agentic content bot, RAG chatbot, Chrome extension. All shipped to real users."
@@ -170,13 +170,13 @@ export const experience = [
   {
     role: "MBKM Student Exchange",
     company: "Universitas Muhammadiyah Magelang",
-    period: "2024",
+    period: "2023",
     description: "Cross-campus program, exposing to different engineering pedagogy and team dynamics."
   },
   {
     role: "IT Intern",
     company: "RS Muhammadiyah Lamongan",
-    period: "2023",
+    period: "2024",
     description: "Hospital IT operations, system support, and contributing to internal tooling. Site of my undergraduate thesis validation."
   }
 ];
