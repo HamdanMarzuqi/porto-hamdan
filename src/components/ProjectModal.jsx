@@ -3,6 +3,8 @@ import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiCheckCircle } from "rea
 
 const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   // Fallback ke project.gambar jika galeri kosong
   const images = project?.galeri && project.galeri.length > 0 ? project.galeri : [project?.gambar];
@@ -42,45 +44,69 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
   if (!project) return null;
 
   const handlePrev = (e) => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const handleNext = (e) => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  // Touch Swipe Gesture Handlers untuk HP / Smartphone
+  const minSwipeDistance = 40;
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrev();
+    }
   };
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8 bg-ink-950/90 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-ink-950/90 backdrop-blur-md animate-fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className="relative w-full max-w-5xl bg-ink-900 border border-ink-800 rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+        className="relative w-full max-w-5xl bg-ink-900 border border-ink-800 rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Modal */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-ink-800 bg-ink-950/60">
-          <div className="flex items-center gap-3">
-            <span className="px-2.5 py-1 bg-ink-900 border border-ink-800 rounded font-mono text-[10px] uppercase tracking-widest text-accent-400">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-ink-800 bg-ink-950/60">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-ink-900 border border-ink-800 rounded font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-accent-400 shrink-0">
               {project.category}
             </span>
-            <h2 id="modal-title" className="font-display font-bold text-lg text-ink-50 truncate max-w-xs sm:max-w-md">
+            <h2 id="modal-title" className="font-display font-bold text-base sm:text-lg text-ink-50 truncate">
               {project.nama}
             </h2>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             {project.links?.github && (
               <a
                 href={project.links.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 text-ink-400 hover:text-accent-400 transition-colors"
+                className="p-1.5 sm:p-2 text-ink-400 hover:text-accent-400 transition-colors"
                 aria-label="View on GitHub"
               >
                 <FiGithub size={18} />
@@ -88,7 +114,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
             )}
             <button
               onClick={onClose}
-              className="p-2 text-ink-400 hover:text-ink-50 hover:bg-ink-800 rounded-lg transition-colors"
+              className="p-1.5 sm:p-2 text-ink-400 hover:text-ink-50 hover:bg-ink-800 rounded-lg transition-colors"
               aria-label="Close modal"
             >
               <FiX size={20} />
@@ -97,13 +123,18 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
         </div>
 
         {/* Modal Main Body (Scrollable) */}
-        <div className="overflow-y-auto flex-1 p-4 sm:p-6 space-y-6">
-          {/* Main Image Lightbox Viewer */}
-          <div className="relative aspect-[16/9] w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group">
+        <div className="overflow-y-auto flex-1 p-3.5 sm:p-6 space-y-5 sm:space-y-6">
+          {/* Main Image Lightbox Viewer dengan Touch Swipe Gesture */}
+          <div
+            className="relative aspect-[16/9] w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <img
               src={images[currentIndex]}
               alt={`${project.nama} screenshot ${currentIndex + 1}`}
-              className="w-full h-full object-contain select-none transition-all duration-300"
+              className="w-full h-full object-contain select-none transition-all duration-300 pointer-events-none"
             />
 
             {/* Navigation Buttons (Only if multiple images) */}
@@ -111,23 +142,23 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
               <>
                 <button
                   onClick={handlePrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-ink-950/80 border border-ink-700 text-ink-100 hover:text-accent-400 hover:border-accent-500/50 transition-all opacity-80 hover:opacity-100 backdrop-blur-sm"
+                  className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-full bg-ink-950/80 border border-ink-700 text-ink-100 hover:text-accent-400 hover:border-accent-500/50 transition-all opacity-80 hover:opacity-100 backdrop-blur-sm"
                   aria-label="Previous screenshot"
                 >
-                  <FiChevronLeft size={22} />
+                  <FiChevronLeft size={20} />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-ink-950/80 border border-ink-700 text-ink-100 hover:text-accent-400 hover:border-accent-500/50 transition-all opacity-80 hover:opacity-100 backdrop-blur-sm"
+                  className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-full bg-ink-950/80 border border-ink-700 text-ink-100 hover:text-accent-400 hover:border-accent-500/50 transition-all opacity-80 hover:opacity-100 backdrop-blur-sm"
                   aria-label="Next screenshot"
                 >
-                  <FiChevronRight size={22} />
+                  <FiChevronRight size={20} />
                 </button>
               </>
             )}
 
             {/* Counter Badge */}
-            <div className="absolute bottom-3 right-3 px-3 py-1 bg-ink-950/80 backdrop-blur-sm border border-ink-800 rounded font-mono text-xs text-ink-300">
+            <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-ink-950/80 backdrop-blur-sm border border-ink-800 rounded font-mono text-[11px] sm:text-xs text-ink-300">
               {currentIndex + 1} / {images.length}
             </div>
           </div>
