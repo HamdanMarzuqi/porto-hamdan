@@ -253,7 +253,7 @@ const App = () => {
               </div>
               <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
                 {[
-                  { num: "4", label: "Production projects" },
+                  { num: "4+", label: "Production projects" },
                   { num: "3+", label: "LLM providers integrated" },
                   { num: "90.9%", label: "Thesis validation" }
                 ].map((s) => (
