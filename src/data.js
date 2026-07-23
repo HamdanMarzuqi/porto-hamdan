@@ -10,9 +10,17 @@ export const projects = [
   {
     id: "malika-pos",
     gambar: Proyek1,
-    // Tambahkan array string/import gambar di galeri saat screenshot sudah siap
-    // Contoh: galeri: [Proyek1, "/assets/proyek/malika-pos/1.webp", "/assets/proyek/malika-pos/2.webp"]
-    galeri: [Proyek1],
+    // Galeri screenshot produk & dashboard POS
+    galeri: [
+      Proyek1,
+      "/assets/proyek/malika-pos/malika-pos-1.jpg",
+      "/assets/proyek/malika-pos/malika-pos-2.jpg",
+      "/assets/proyek/malika-pos/malika-pos-3.jpg",
+      "/assets/proyek/malika-pos/malika-pos-4.jpg",
+      "/assets/proyek/malika-pos/malika-pos-5.jpg",
+      "/assets/proyek/malika-pos/malika-pos-6.jpg",
+      "/assets/proyek/malika-pos/malika-pos-7.jpg"
+    ],
     nama: "Malika Smart Booth POS System",
     role: "Full-Stack Developer & AI Integration",
     desk: "Production POS with AI function calling — 7 tools connecting Groq Llama 3.3 70B to live sales data, menu analytics, and natural-language ops queries. Serving real transactions.",
@@ -35,7 +43,14 @@ export const projects = [
   {
     id: "hr-threads",
     gambar: Proyek2,
-    galeri: [Proyek2],
+    galeri: [
+      Proyek2,
+      "/assets/proyek/hr-threads/hr-threads-1.jpg",
+      "/assets/proyek/hr-threads/hr-threads-2.jpg",
+      "/assets/proyek/hr-threads/hr-threads-3.jpg",
+      "/assets/proyek/hr-threads/hr-threads-4.jpg",
+      "/assets/proyek/hr-threads/hr-threads-5.jpg"
+    ],
     nama: "HR Threads Agent",
     role: "Web-Search RAG Architecture & AI Integration",
     desk: "Building an RAG-Based AI Agent for HR Content Using Telegram Approval Gate & the Meta Threads API",
@@ -58,7 +73,12 @@ export const projects = [
   {
     id: "dental-wa",
     gambar: Proyek3,
-    galeri: [Proyek3],
+    galeri: [
+      Proyek3,
+      "/assets/proyek/dental-wa/dental-wa-1.jpg",
+      "/assets/proyek/dental-wa/dental-wa-2.jpg",
+      "/assets/proyek/dental-wa/dental-wa-3.jpg"
+    ],
     nama: "Dental WhatsApp Chatbot",
     role: "Backend Developer",
     desk: "An AI-Powered WhatsApp Chatbot with Function Calling and Anti-Hallucination Guardrails for Time Parsing to Automate Clinic Services.",
@@ -79,7 +99,16 @@ export const projects = [
   {
     id: "wa-translator",
     gambar: Proyek4,
-    galeri: [Proyek4],
+    galeri: [
+      Proyek4,
+      "/assets/proyek/wa-translator/wa-translator-1.jpg",
+      "/assets/proyek/wa-translator/wa-translator-2.jpg",
+      "/assets/proyek/wa-translator/wa-translator-3.jpg",
+      "/assets/proyek/wa-translator/wa-translator-4.jpg",
+      "/assets/proyek/wa-translator/wa-translator-5.jpg",
+      "/assets/proyek/wa-translator/wa-translator-6.jpg",
+      "/assets/proyek/wa-translator/wa-translator-7.jpg"
+    ],
     nama: "WhatsApp Web Translator",
     role: "Frontend / Extension Dev",
     desk: "Chrome extension translating WhatsApp Web messages in place. MutationObserver-driven, free Google Translate API, MV3 with CRXJS bundler.",
@@ -100,7 +129,18 @@ export const projects = [
   {
     id: "sistem-pakar",
     gambar: Proyek5,
-    galeri: [Proyek5],
+    galeri: [
+      Proyek5,
+      "/assets/proyek/sistem-pakar/sistem-pakar-1.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-2.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-3.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-4.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-5.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-6.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-7.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-8.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-9.jpg"
+    ],
     nama: "Expert System for Heart Disease",
     role: "Research & Backend",
     desk: "Web-based expert system for early heart disease detection using Forward Chaining. Thesis project, validated 90.9% against medical records at RS Muhammadiyah Lamongan.",
@@ -143,23 +183,30 @@ export const projects = [
 ];
 
 export const stack = [
-  { name: "JavaScript", level: "Primary", icon: "SiJavascript" },
-  { name: "TypeScript", level: "Working", icon: "SiTypescript" },
-  { name: "Node.js", level: "Primary", icon: "SiNodedotjs" },
-  { name: "React", level: "Primary", icon: "SiReact" },
-  { name: "Python", level: "Working", icon: "SiPython" },
-  { name: "Tailwind CSS", level: "Primary", icon: "SiTailwindcss" },
-  { name: "SQLite", level: "Working", icon: "SiSqlite" },
-  { name: "Git & GitHub", level: "Primary", icon: "SiGithub" }
+  { name: "JavaScript", icon: "SiJavascript" },
+  { name: "TypeScript", icon: "SiTypescript" },
+  { name: "Node.js", icon: "SiNodedotjs" },
+  { name: "React", icon: "SiReact" },
+  { name: "Python", icon: "SiPython" },
+  { name: "Tailwind CSS", icon: "SiTailwindcss" },
+  { name: "SQLite", icon: "SiSqlite" },
+  { name: "Git & GitHub", icon: "SiGithub" }
 ];
 
 export const aiSkills = [
-  "Function Calling",
+  "Autonomous Agentic AI",
+  "Web Development",
   "RAG Pipelines",
-  "Agentic Loops",
+  "Frontend Development",
+  "Multi LLM Orchestration",
   "Prompt Engineering",
-  "Multi-LLM Routing",
-  "Anti-hallucination Guards"
+  "Human-in-the-Loop",
+  "Deployment",
+  "AI Function Calling",
+  "Whatsapp Automation",
+  "Anti-Hallucination Guardrails",
+  "Chrome Extensions",
+  "Real-time DOM Observation"
 ];
 
 export const experience = [

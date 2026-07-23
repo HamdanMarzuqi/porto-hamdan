@@ -7,7 +7,7 @@ import { projects, stack, aiSkills, experience } from "./data";
 import ProjectModal from "./components/ProjectModal.jsx";
 import HeroImage from "/assets/Hamdan_Red_Background.png";
 
-const TYPED_WORDS = ["Web Developer", "Agentic AI Integration"];
+const TYPED_WORDS = ["Web Developer", "Agentic AI Developer"];
 
 const stackIconMap = {
   SiJavascript, SiTypescript, SiNodedotjs, SiReact,
@@ -322,10 +322,7 @@ const App = () => {
                 className={aboutText2.cls}
                 style={aboutText2.style}
               >
-                My portfolio spans three production AI integrations (HR Threads agent, dental scheduling bot,
-                Malika POS with 7 AI tools) and a Chrome extension. Each system was designed end-to-end —
-                from architecture to deployment, with proper error handling, anti-hallucination guardrails,
-                and the kind of cost awareness that comes from paying your own LLM bills.
+                A graduate of Information Technology (GPA 3.56/4.00) with strong analytical and systematic thinking skills. Experienced in building full-stack web applications and integrating AI/LLM into production systems using Node.js, React, Python, REST APIs, and many more. A fast learner who is adaptable with proven ability to manage projects independently from concept to deployment. Highly motivated to continue developing, confident that my combination of technical skills and hands-on project experience makes me ready to make a real contribution as a Full-Stack Developer, Web Developer, or AI Engineer in a professional work environment.
               </p>
               <p
                 ref={aboutText3.ref}
@@ -374,9 +371,9 @@ const App = () => {
                 <span className="text-ink-500">03</span> — Selected work
               </p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-ink-50 leading-tight">
-                Production-deployed,
+                Practical solutions,
                 <br />
-                <span className="text-gradient-accent">not proof-of-concept.</span>
+                <span className="text-gradient-accent">built to solve real problems.</span>
               </h2>
             </div>
             <a
@@ -441,14 +438,14 @@ const App = () => {
                 className={`mt-6 text-ink-400 leading-relaxed ${skillsDesc.cls}`}
                 style={skillsDesc.style}
               >
-                Everything here has been used in at least one deployed system. No resume-driven development.
+                Technologies and frameworks I use to build functional AI integration system & web applications to solve real-world problems.
               </p>
             </div>
 
             <div className="lg:col-span-8 space-y-10">
               <div ref={skillsGrid.ref}>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-4 flex items-center gap-2">
-                  <FiServer size={12} /> Primary stack
+                  <FiServer size={12} /> Tech stack
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {stack.map((s, i) => {
@@ -465,9 +462,6 @@ const App = () => {
                         </div>
                         <div>
                           <div className="text-sm font-medium text-ink-100">{s.name}</div>
-                          <div className="font-mono text-[9px] uppercase tracking-widest text-ink-500 mt-0.5">
-                            {s.level}
-                          </div>
                         </div>
                       </div>
                     );
@@ -477,7 +471,7 @@ const App = () => {
 
               <div ref={skillsAI.ref}>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-4 flex items-center gap-2">
-                  <FiCpu size={12} /> Agentic AI specialism
+                  <FiCpu size={12} /> Technical Capabilities & AI Integration
                 </p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   {aiSkills.map((skill, i) => (
