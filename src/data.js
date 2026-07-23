@@ -37,8 +37,8 @@ export const projects = [
     gambar: Proyek2,
     galeri: [Proyek2],
     nama: "HR Threads Agent",
-    role: "AI Agent Developer",
-    desk: "Autonomous content agent generating HR posts, running dual-LLM review gate via Telegram, and publishing to Meta Threads on schedule. Survives fly.io free tier.",
+    role: "Web-Search RAG Architecture & AI Integration",
+    desk: "Building an RAG-Based AI Agent for HR Content Using Telegram Approval Gate & the Meta Threads API",
     impact: [
       "Designed an end-to-end autonomous AI agent architecture to automate the scheduled creation and publication of HR content on Meta Threads—generating content with 272 organic views (~8x the number of followers) on an account with only 34 followers.",
       "Implemented a dual-LLM pipeline (Claude & Gemini) with automatic fallback between providers and integration of the Tavily Search API for real-time news retrieval, ensuring content remains relevant to the latest HR news.",
@@ -60,8 +60,8 @@ export const projects = [
     gambar: Proyek3,
     galeri: [Proyek3],
     nama: "Dental WhatsApp Chatbot",
-    role: "RAG & Backend Developer",
-    desk: "WhatsApp chatbot for dental clinic scheduling with RAG over Google Sheets, function calling for appointment ops, and anti-hallucination guardrails on time parsing.",
+    role: "Backend Developer",
+    desk: "An AI-Powered WhatsApp Chatbot with Function Calling and Anti-Hallucination Guardrails for Time Parsing to Automate Clinic Services.",
     impact: [
       "Built an end-to-end WhatsApp AI chatbot to automate dental clinic scheduling—patients can check doctors’ schedules by name, day, or office hours in real time.",
       "Implemented a RAG (Retrieval-Augmented Generation) architecture via Function Calling using Groq Llama 3.3 70B — the AI autonomously decides when to retrieve schedule data from Google Sheets, then augments the results into the prompt to generate accurate and natural responses.",
