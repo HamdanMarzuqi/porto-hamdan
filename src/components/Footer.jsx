@@ -62,11 +62,11 @@ const Footer = () => {
                 <FiArrowUpRight className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" size={12} />
               </a>
               <a
-                href="mailto:hamdan.unisa@gmail.com"
+                href="mailto:hamdanmarzuqi001@gmail.com"
                 className="inline-flex items-center gap-2 text-sm text-ink-300 hover:text-accent-400 transition-colors"
               >
                 <FiMail size={16} />
-                <span>hamdan.unisa@gmail.com</span>
+                <span>hamdanmarzuqi001@gmail.com</span>
               </a>
             </div>
           </div>

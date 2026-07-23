@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { useScrollReveal } from "./hooks/useScrollReveal.js";
 
-import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle, FiMaximize2, FiImage } from "react-icons/fi";
 import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiTypescript, SiSqlite, SiGithub } from "react-icons/si";
 import { projects, stack, aiSkills, experience } from "./data";
+import ProjectModal from "./components/ProjectModal.jsx";
 import HeroImage from "/assets/Hamdan_Red_Background.png";
 
 const TYPED_WORDS = ["Web Developer", "Agentic AI Integration"];
@@ -77,8 +78,9 @@ const useScrollToTop = () => {
 
 
 // ─── Project Card ───
-const ProjectCard = ({ project, featured = false, index }) => {
+const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
   const reveal = useScrollReveal({ animation: "fade-up", delay: Math.min(index * 80, 300) });
+  const imageCount = project.galeri && project.galeri.length > 0 ? project.galeri.length : 1;
 
   return (
     <article
@@ -86,7 +88,10 @@ const ProjectCard = ({ project, featured = false, index }) => {
       className={`group card rounded-lg overflow-hidden flex flex-col ${reveal.cls} hover:-translate-y-1`}
       style={reveal.style}
     >
-      <div className="relative aspect-[16/9] overflow-hidden bg-ink-900 border-b border-ink-800/80">
+      <div
+        className="relative aspect-[16/9] overflow-hidden bg-ink-900 border-b border-ink-800/80 cursor-pointer"
+        onClick={() => onOpenModal(project)}
+      >
         <img
           src={project.gambar}
           alt={project.nama}
@@ -96,14 +101,31 @@ const ProjectCard = ({ project, featured = false, index }) => {
         <div className="absolute top-3 left-3 px-2 py-1 bg-ink-950/80 backdrop-blur-sm border border-ink-800 rounded font-mono text-[10px] uppercase tracking-widest text-accent-400">
           {project.category}
         </div>
+
+        {/* Gallery Image Count Badge */}
+        <div className="absolute top-3 right-3 px-2 py-1 bg-ink-950/80 backdrop-blur-sm border border-ink-800 rounded font-mono text-[10px] text-ink-300 flex items-center gap-1 opacity-90 group-hover:opacity-100 group-hover:border-accent-500/50 transition-all">
+          <FiImage size={12} className="text-accent-400" />
+          <span>{imageCount} Foto</span>
+        </div>
+
+        {/* Hover overlay hint */}
+        <div className="absolute inset-0 bg-ink-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-ink-100 font-mono text-xs">
+          <span className="px-3 py-1.5 bg-ink-950/90 border border-ink-700 rounded-md backdrop-blur-sm flex items-center gap-1.5 shadow-lg group-hover:scale-105 transition-transform">
+            <FiMaximize2 size={13} className="text-accent-400" />
+            <span>View the picture</span>
+          </span>
+        </div>
       </div>
 
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-4 mb-2">
-          <h3 className="text-xl font-display font-semibold text-ink-50 group-hover:text-accent-400 transition-colors">
+          <h3
+            className="text-xl font-display font-semibold text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
+            onClick={() => onOpenModal(project)}
+          >
             {project.nama}
           </h3>
-          {project.links.github && (
+          {project.links?.github && (
             <a
               href={project.links.github}
               target="_blank"
@@ -150,6 +172,8 @@ const ProjectCard = ({ project, featured = false, index }) => {
 const App = () => {
   const typed = useTypewriter(TYPED_WORDS);
   const { show: showScrollTop, scrollToTop } = useScrollToTop();
+  const [activeModalProject, setActiveModalProject] = useState(null);
+
   const featured = projects.filter((p) => p.featured);
   const other = projects.filter((p) => !p.featured);
 
@@ -369,12 +393,23 @@ const App = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             {featured.map((p, i) => (
-              <ProjectCard key={p.id} project={p} featured index={i} />
+              <ProjectCard
+                key={p.id}
+                project={p}
+                featured
+                index={i}
+                onOpenModal={(proj) => setActiveModalProject(proj)}
+              />
             ))}
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {other.map((p, i) => (
-              <ProjectCard key={p.id} project={p} index={i} />
+              <ProjectCard
+                key={p.id}
+                project={p}
+                index={i}
+                onOpenModal={(proj) => setActiveModalProject(proj)}
+              />
             ))}
           </div>
         </div>
@@ -525,7 +560,7 @@ const App = () => {
 
           <form
             ref={kontakForm.ref}
-            action="https://formsubmit.co/hamdan.unisa@gmail.com"
+            action="https://formsubmit.co/hamdanmarzuqi001@gmail.com"
             method="POST"
             className={`card p-8 sm:p-10 rounded-lg space-y-6 ${kontakForm.cls}`}
             style={kontakForm.style}
@@ -583,6 +618,12 @@ const App = () => {
       >
         <FiArrowUp size={18} />
       </button>
+
+      {/* Lightbox Screenshot Modal */}
+      <ProjectModal
+        project={activeModalProject}
+        onClose={() => setActiveModalProject(null)}
+      />
     </>
   );
 };

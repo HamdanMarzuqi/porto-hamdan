@@ -10,6 +10,9 @@ export const projects = [
   {
     id: "malika-pos",
     gambar: Proyek1,
+    // Tambahkan array string/import gambar di galeri saat screenshot sudah siap
+    // Contoh: galeri: [Proyek1, "/assets/proyek/malika-pos/1.webp", "/assets/proyek/malika-pos/2.webp"]
+    galeri: [Proyek1],
     nama: "Malika Smart Booth POS System",
     role: "Full-Stack Developer & AI Integration",
     desk: "Production POS with AI function calling — 7 tools connecting Groq Llama 3.3 70B to live sales data, menu analytics, and natural-language ops queries. Serving real transactions.",
@@ -32,6 +35,7 @@ export const projects = [
   {
     id: "hr-threads",
     gambar: Proyek2,
+    galeri: [Proyek2],
     nama: "HR Threads Agent",
     role: "AI Agent Developer",
     desk: "Autonomous content agent generating HR posts, running dual-LLM review gate via Telegram, and publishing to Meta Threads on schedule. Survives fly.io free tier.",
@@ -54,6 +58,7 @@ export const projects = [
   {
     id: "dental-wa",
     gambar: Proyek3,
+    galeri: [Proyek3],
     nama: "Dental WhatsApp Chatbot",
     role: "RAG & Backend Developer",
     desk: "WhatsApp chatbot for dental clinic scheduling with RAG over Google Sheets, function calling for appointment ops, and anti-hallucination guardrails on time parsing.",
@@ -74,6 +79,7 @@ export const projects = [
   {
     id: "wa-translator",
     gambar: Proyek4,
+    galeri: [Proyek4],
     nama: "WhatsApp Web Translator",
     role: "Frontend / Extension Dev",
     desk: "Chrome extension translating WhatsApp Web messages in place. MutationObserver-driven, free Google Translate API, MV3 with CRXJS bundler.",
@@ -94,6 +100,7 @@ export const projects = [
   {
     id: "sistem-pakar",
     gambar: Proyek5,
+    galeri: [Proyek5],
     nama: "Expert System for Heart Disease",
     role: "Research & Backend",
     desk: "Web-based expert system for early heart disease detection using Forward Chaining. Thesis project, validated 90.9% against medical records at RS Muhammadiyah Lamongan.",
@@ -116,6 +123,7 @@ export const projects = [
   {
     id: "infra-router",
     gambar: Proyek6,
+    galeri: [Proyek6],
     nama: "Multi-Provider AI Router",
     role: "AI Infrastructure",
     desk: "Personal AI infrastructure: 9Router as OpenAI-compatible proxy, custom provider mapping, and 3-tier fallback (subscription → cheap → free) for uninterrupted agent uptime.",
