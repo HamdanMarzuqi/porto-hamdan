@@ -1,10 +1,10 @@
 // Project data — production projects, not dummy
-import Proyek1 from "/assets/proyek/proyek1.webp";
-import Proyek2 from "/assets/proyek/proyek2.webp";
-import Proyek3 from "/assets/proyek/proyek3.webp";
-import Proyek4 from "/assets/proyek/proyek4.webp";
-import Proyek5 from "/assets/proyek/proyek5.webp";
-import Proyek6 from "/assets/proyek/proyek6.webp";
+import Proyek1 from "/assets/proyek/proyek1.jpeg";
+import Proyek2 from "/assets/proyek/proyek2.jpg";
+import Proyek3 from "/assets/proyek/proyek3.jpg";
+import Proyek4 from "/assets/proyek/proyek4.jpg";
+import Proyek5 from "/assets/proyek/proyek5.jpeg";
+// import Proyek6 from "/assets/proyek/proyek6.webp";
 
 export const projects = [
   {
@@ -159,26 +159,6 @@ export const projects = [
       demo: null
     },
     featured: false
-  },
-  {
-    id: "infra-router",
-    gambar: Proyek6,
-    galeri: [Proyek6],
-    nama: "Multi-Provider AI Router",
-    role: "AI Infrastructure",
-    desk: "Personal AI infrastructure: 9Router as OpenAI-compatible proxy, custom provider mapping, and 3-tier fallback (subscription → cheap → free) for uninterrupted agent uptime.",
-    impact: [
-      "Subscription → Cheap → Free fallback",
-      "Custom OpenAI-compatible provider",
-      "Multi-model orchestration"
-    ],
-    stack: ["9Router", "Agent Router", "OpenAI API", "Hermes"],
-    category: "AI Infrastructure",
-    links: {
-      github: null,
-      demo: null
-    },
-    featured: false
   }
 ];
 
@@ -196,7 +176,7 @@ export const stack = [
 export const aiSkills = [
   "Autonomous Agentic AI",
   "Web Development",
-  "RAG Pipelines",
+  "Web-search RAG Architecture",
   "Frontend Development",
   "Multi LLM Orchestration",
   "Prompt Engineering",

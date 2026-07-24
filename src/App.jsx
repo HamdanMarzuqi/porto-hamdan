@@ -232,7 +232,7 @@ const App = () => {
               <p className="text-base text-ink-400 leading-relaxed max-w-xl mb-10">
                 Fresh graduate from <span className="text-ink-200">Universitas 'Aisyiyah Yogyakarta</span>.
                 I build production full-stack web applications and integrate agentic AI systems that ship
-                to real users — POS, content agents, RAG chatbots.
+                to real users — POS, content agents, chatbots.
               </p>
 
               <div className="flex flex-wrap items-center gap-3">
@@ -314,8 +314,7 @@ const App = () => {
                 className={aboutText1.cls}
                 style={aboutText1.style}
               >
-                I run an F&B business and write code — two worlds that look unrelated but share the same
-                principle: <span className="text-ink-50">ship it, measure it, iterate it.</span>
+                Having operated an F&B business for over 4 years while building software, I’ve learned that business operations and software engineering share the same core principle: <span className="text-ink-50">ship it, measure it, iterate it.</span>
               </p>
               <p
                 ref={aboutText2.ref}
@@ -500,9 +499,7 @@ const App = () => {
                       Current focus
                     </p>
                     <p className="text-ink-200 leading-relaxed">
-                      Multi-agent orchestration, RAG over private docs, and bringing production-grade
-                      observability to LLM applications. Currently exploring <span className="text-ink-50">LangGraph</span> and
-                      extending the Malika POS agent into a multi-tool workflow.
+                      Building autonomous AI agents with Human-in-the-Loop approval, web development, frontend development, Web-Search RAG, and multi-tool function calling. Currently exploring <span className="text-ink-50">LangGraph</span> multi-agent orchestration and expanding WhatsApp & POS automation into scalable AI workflows.
                     </p>
                   </div>
                 </div>
