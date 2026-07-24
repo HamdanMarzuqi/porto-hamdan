@@ -4,7 +4,7 @@ import Proyek2 from "/assets/proyek/proyek2.jpg";
 import Proyek3 from "/assets/proyek/proyek3.jpg";
 import Proyek4 from "/assets/proyek/proyek4.jpg";
 import Proyek5 from "/assets/proyek/proyek5.jpeg";
-// import Proyek6 from "/assets/proyek/proyek6.webp";
+import Proyek6 from "/assets/proyek/Proyek6.jpeg";
 
 export const projects = [
   {
@@ -32,7 +32,7 @@ export const projects = [
       "Integrated the Google Sheets API for menu names and prices; operators can update the menu without modifying the program.",
       "Managed daily operations at F&B outlets, from raw ingredient inventory and sales transactions to food service and customer communication."
     ],
-    stack: ["Node.js", "Express", "SQLite", "Groq", "Chart.js"],
+    stack: ["Node.js", "Express", "SQLite", "Groq AI", "Chart.js", "Sheets API"],
     category: "AI & Web POS System",
     links: {
       github: "https://github.com/HamdanMarzuqi/Malika-Kebab-Management-System",
@@ -62,7 +62,7 @@ export const projects = [
       "Built a smart thread splitter that automatically partitions long content (>490 characters) into threaded replies according to Meta Threads API limitations.",
       "Deployed the system to Fly.io (Singapore) in a containerized environment with persistent volumes for SQLite and logs, along with a CI/CD pipeline via GitHub Actions."
     ],
-    stack: ["Python", "Claude", "Gemini", "Tavily", "Fly.io"],
+    stack: ["Python", "Claude", "Gemini", "Tavily", "Telegram Bot", "Fly.io"],
     category: "Agentic AI",
     links: {
       github: "https://github.com/HamdanMarzuqi/hr-threads-agent",
@@ -88,7 +88,7 @@ export const projects = [
       "Designed a dual-layer parameter extraction pipeline — combining rule-based NLP (keyword & temporal resolver) with AI JSON extraction to ensure queries to the data source remain accurate.",
       "Performed iterative prompt engineering and systematic bug fixes to minimize hallucinated responses — including deterministic JS overrides for AI extraction and constraint injection in system prompts."
     ],
-    stack: ["Node.js", "Groq", "whatsapp-web.js", "Sheets API"],
+    stack: ["Node.js", "Groq AI", "Gemini", "whatsapp-web.js", "Sheets API"],
     category: "AI & Chatbot",
     links: {
       github: "https://github.com/HamdanMarzuqi/Dental-appointment-scheduling",
@@ -159,12 +159,39 @@ export const projects = [
       demo: null
     },
     featured: false
+  },
+  {
+    id: "infra-router",
+    gambar: Proyek6,
+    galeri: [
+      Proyek6,
+      "/assets/proyek/hermes-9router/hermes-9router-2.png",
+      "/assets/proyek/hermes-9router/hermes-9router-3.png",
+      "/assets/proyek/hermes-9router/hermes-9router-4.png",
+      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+    ],
+    nama: "Hermes Agent + 9Router Integration",
+    role: "AI Infrastructure & System Integration",
+    desk: "Deployed Hermes Agent as an autonomous AI assistant on local infrastructure with persistent memory, tool-use capabilities, and multi-platform messaging support (Telegram).",
+    impact: [
+      "Configured 9Router as an LLM proxy gateway implementing a 3-tier provider fallback (paid → cheap → free) for automatic failover when rate limits or outages occur on upstream APIs.",
+      "Integrated Telegram bot as the primary interaction layer, enabling real-time queries routed through multiple free-tier LLM providers without manual provider switching.",
+      "Designed a cost-optimized architecture that maintains AI agent uptime using exclusively free API tiers through intelligent routing and quota-aware fallback logic.",
+      "Applied system integration patterns: client (Telegram) ↔ agent framework (Hermes) ↔ proxy gateway (9Router) ↔ multi-provider LLM backend."
+    ],
+    stack: ["Hermes Agent", "9Router", "Telegram Bot", "Multi-LLM"],
+    category: "AI Infrastructure",
+    links: {
+      github: null,
+      demo: null
+    },
+    featured: false
   }
 ];
 
 export const stack = [
   { name: "JavaScript", icon: "SiJavascript" },
-  { name: "TypeScript", icon: "SiTypescript" },
+  { name: "Express", icon: "SiExpress" },
   { name: "Node.js", icon: "SiNodedotjs" },
   { name: "React", icon: "SiReact" },
   { name: "Python", icon: "SiPython" },

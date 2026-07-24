@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useScrollReveal } from "./hooks/useScrollReveal.js";
 
 import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle, FiMaximize2, FiImage } from "react-icons/fi";
-import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiTypescript, SiSqlite, SiGithub } from "react-icons/si";
+import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiExpress, SiSqlite, SiGithub } from "react-icons/si";
 import { projects, stack, aiSkills, experience } from "./data";
 import ProjectModal from "./components/ProjectModal.jsx";
 import HeroImage from "/assets/Hamdan_Red_Background.png";
@@ -10,7 +10,7 @@ import HeroImage from "/assets/Hamdan_Red_Background.png";
 const TYPED_WORDS = ["Web Developer", "Agentic AI Developer"];
 
 const stackIconMap = {
-  SiJavascript, SiTypescript, SiNodedotjs, SiReact,
+  SiJavascript, SiExpress, SiNodedotjs, SiReact,
   SiPython, SiTailwindcss, SiSqlite, SiGithub
 };
 
