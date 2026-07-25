@@ -52,8 +52,8 @@ export const projects = [
       "/assets/proyek/hr-threads/hr-threads-5.jpg"
     ],
     nama: "HR Threads Agent",
-    role: "Web-Search RAG Architecture & AI Integration",
-    desk: "Building an RAG-Based AI Agent for HR Content Using Telegram Approval Gate & the Meta Threads API",
+    role: "Web Search-Augmented-Generation Architecture & AI Integration",
+    desk: "Building a Search-Augmented AI Agent for HR Content Using Telegram Approval Gate & the Meta Threads API",
     impact: [
       "Designed an end-to-end autonomous AI agent architecture to automate the scheduled creation and publication of HR content on Meta Threads—generating content with 272 organic views (~8x the number of followers) on an account with only 34 followers.",
       "Implemented a dual-LLM pipeline (Claude & Gemini) with automatic fallback between providers and integration of the Tavily Search API for real-time news retrieval, ensuring content remains relevant to the latest HR news.",
@@ -81,10 +81,10 @@ export const projects = [
     ],
     nama: "Dental WhatsApp Chatbot",
     role: "Backend Developer",
-    desk: "An AI-Powered WhatsApp Chatbot with Function Calling and Anti-Hallucination Guardrails for Time Parsing to Automate Clinic Services.",
+    desk: "An AI-Powered WhatsApp Chatbot with Function Calling and Structured RAG to Automate Clinic Services.",
     impact: [
       "Built an end-to-end WhatsApp AI chatbot to automate dental clinic scheduling—patients can check doctors’ schedules by name, day, or office hours in real time.",
-      "Implemented a RAG (Retrieval-Augmented Generation) architecture via Function Calling using Groq Llama 3.3 70B — the AI autonomously decides when to retrieve schedule data from Google Sheets, then augments the results into the prompt to generate accurate and natural responses.",
+      "Implemented a Structured RAG (Retrieval-Augmented Generation) architecture via Function Calling using Groq Llama 3.3 70B — the AI autonomously decides when to retrieve schedule data from Google Sheets, then augments the results into the prompt to generate accurate and natural responses.",
       "Designed a dual-layer parameter extraction pipeline — combining rule-based NLP (keyword & temporal resolver) with AI JSON extraction to ensure queries to the data source remain accurate.",
       "Performed iterative prompt engineering and systematic bug fixes to minimize hallucinated responses — including deterministic JS overrides for AI extraction and constraint injection in system prompts."
     ],
@@ -197,13 +197,15 @@ export const stack = [
   { name: "Python", icon: "SiPython" },
   { name: "Tailwind CSS", icon: "SiTailwindcss" },
   { name: "SQLite", icon: "SiSqlite" },
-  { name: "Git & GitHub", icon: "SiGithub" }
+  { name: "Git & GitHub", icon: "SiGithub" },
+  { name: "Antigravity IDE", icon: "AntigravityIcon" },
+  { name: "Cursor", icon: "CursorIcon" }
 ];
 
 export const aiSkills = [
   "Autonomous Agentic AI",
   "Web Development",
-  "Web-search RAG Architecture",
+  "Structured RAG",
   "Frontend Development",
   "Multi LLM Orchestration",
   "Prompt Engineering",
@@ -227,7 +229,7 @@ export const experience = [
     role: "Agentic AI Integration & Web Developer",
     company: "Self-Directed Portfolio",
     period: "2025 — Present",
-    description: "4 production-deployed systems — POS with AI, agentic content bot, RAG chatbot, Chrome extension. All shipped to real users."
+    description: "4 production-deployed systems — POS with AI, agentic content bot, Structured RAG chatbot, Chrome extension. All shipped to real users."
   },
   {
     role: "MBKM Student Exchange",

@@ -1,18 +1,39 @@
 import { useState, useEffect } from "react";
 import { useScrollReveal } from "./hooks/useScrollReveal.js";
 
-import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle, FiMaximize2, FiImage } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle, FiMaximize2, FiImage, FiCode } from "react-icons/fi";
 import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiExpress, SiSqlite, SiGithub } from "react-icons/si";
 import { projects, stack, aiSkills, experience } from "./data";
 import ProjectModal from "./components/ProjectModal.jsx";
 import HeroImage from "/assets/Hamdan_Red_Background.png";
 
-const TYPED_WORDS = ["Web Developer", "Agentic AI Developer"];
+// Custom SVG Icons for Antigravity IDE & Cursor AI Editor
+const CursorIcon = ({ size = 20, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.95" />
+    <path d="M2 7V17L12 22V12L2 7Z" fill="currentColor" fillOpacity="0.55" />
+    <path d="M22 7V17L12 22V12L22 7Z" fill="currentColor" fillOpacity="0.75" />
+  </svg>
+);
+
+const AntigravityIcon = ({ size = 20, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <circle cx="12" cy="12" r="3.5" fill="currentColor" />
+    <ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" strokeWidth="1.6" transform="rotate(-30 12 12)" />
+    <ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" strokeWidth="1.6" strokeDasharray="14 3" transform="rotate(30 12 12)" strokeOpacity="0.7" />
+    <circle cx="12" cy="3" r="1" fill="currentColor" />
+    <circle cx="5" cy="18" r="0.8" fill="currentColor" fillOpacity="0.8" />
+    <circle cx="19" cy="18" r="0.8" fill="currentColor" fillOpacity="0.8" />
+  </svg>
+);
 
 const stackIconMap = {
   SiJavascript, SiExpress, SiNodedotjs, SiReact,
-  SiPython, SiTailwindcss, SiSqlite, SiGithub
+  SiPython, SiTailwindcss, SiSqlite, SiGithub,
+  AntigravityIcon, CursorIcon
 };
+
+const TYPED_WORDS = ["Web Developer", "Agentic AI Developer"];
 
 // ─── Typewriter Hook ───
 const useTypewriter = (words, speed = 80, pause = 1800) => {
@@ -499,7 +520,7 @@ const App = () => {
                       Current focus
                     </p>
                     <p className="text-ink-200 leading-relaxed">
-                      Building autonomous AI agents with Human-in-the-Loop approval, web development, frontend development, Web-Search RAG, and multi-tool function calling. Currently exploring <span className="text-ink-50">LangGraph</span> multi-agent orchestration and expanding WhatsApp & POS automation into scalable AI workflows.
+                      Building autonomous AI agents with Human-in-the-Loop approval, web development, frontend development, Structured RAG, and multi-tool function calling. Currently exploring <span className="text-ink-50">LangGraph</span> multi-agent orchestration and expanding WhatsApp & POS automation into scalable AI workflows.
                     </p>
                   </div>
                 </div>
