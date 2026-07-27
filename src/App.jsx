@@ -33,7 +33,7 @@ const stackIconMap = {
   AntigravityIcon, CursorIcon
 };
 
-const TYPED_WORDS = ["Web Developer", "Agentic AI Developer"];
+const TYPED_WORDS = ["Web Developer", "Enthusiast in Agentic AI & Automation"];
 
 // ─── Typewriter Hook ───
 const useTypewriter = (words, speed = 80, pause = 1800) => {
@@ -198,7 +198,7 @@ const App = () => {
   const featured = projects.filter((p) => p.featured);
   const other = projects.filter((p) => !p.featured);
 
-  // Scroll reveal — each ref is attached to its own element
+  // Scroll reveal each ref is attached to its own element
   const aboutSection = useScrollReveal({ animation: "fade-up", delay: 0 });
   const aboutTitle = useScrollReveal({ animation: "fade-up", delay: 80 });
   const aboutText1 = useScrollReveal({ animation: "fade-up", delay: 120 });
@@ -253,7 +253,7 @@ const App = () => {
               <p className="text-base text-ink-400 leading-relaxed max-w-xl mb-10">
                 Fresh graduate from <span className="text-ink-200">Universitas 'Aisyiyah Yogyakarta</span>.
                 I build production full-stack web applications and integrate agentic AI systems that ship
-                to real users — POS, content agents, chatbots.
+                to real users like POS System Website, content agents with human approval gate (telegram), chatbots, and many more
               </p>
 
               <div className="flex flex-wrap items-center gap-3">

@@ -1,4 +1,4 @@
-// Project data — production projects, not dummy
+// Project data production projects, not dummy
 import Proyek1 from "/assets/proyek/proyek1.jpeg";
 import Proyek2 from "/assets/proyek/proyek2.jpg";
 import Proyek3 from "/assets/proyek/proyek3.jpg";
@@ -23,7 +23,7 @@ export const projects = [
     ],
     nama: "Malika Smart Booth POS System",
     role: "Full-Stack Developer & AI Integration",
-    desk: "Production POS with AI function calling — 7 tools connecting Groq Llama 3.3 70B to live sales data, menu analytics, and natural-language ops queries. Serving real transactions.",
+    desk: "Production POS with AI function calling, 7 tools connecting Groq Llama 3.3 70B to live sales data, menu analytics, and natural-language ops queries. Serving real transactions.",
     impact: [
       "Designed and built a custom Point-of-Sale (POS) system from scratch, deployed to SmarterASP.NET.",
       "Integrated Groq AI (Llama 3.3 70B) via function calling as a cashier assistant, with features including menu search, sales summary, expense reports, and menu recommendations.",
@@ -55,12 +55,12 @@ export const projects = [
     role: "Web Search-Augmented-Generation Architecture & AI Integration",
     desk: "Building a Search-Augmented AI Agent for HR Content Using Telegram Approval Gate & the Meta Threads API",
     impact: [
-      "Designed an end-to-end autonomous AI agent architecture to automate the scheduled creation and publication of HR content on Meta Threads—generating content with 272 organic views (~8x the number of followers) on an account with only 34 followers.",
+      "Designed an end-to-end autonomous AI agent architecture to automate the scheduled creation and publication of HR content on Meta Threads. Generating content with 272 organic views (~8x the number of followers) on an account with only 34 followers.",
       "Implemented a dual-LLM pipeline (Claude & Gemini) with automatic fallback between providers and integration of the Tavily Search API for real-time news retrieval, ensuring content remains relevant to the latest HR news.",
-      "Built a Human-in-the-Loop review gate via Telegram — the system sends drafts to admins for /approve, /edit, or /skip before publication, combining automation with human oversight.",
+      "Built a Human-in-the-Loop review gate via Telegram. The system sends drafts to admins for /approve, /edit, or /skip before publication, combining automation with human oversight.",
       "Designed a topic rotation engine with 40 HR topics and a 30-day recency window using SQLite to prevent content duplication, complete with runtime schedule management (/schedule, /setschedule) without requiring a restart or redeployment.",
       "Built a smart thread splitter that automatically partitions long content (>490 characters) into threaded replies according to Meta Threads API limitations.",
-      "Deployed the system to Fly.io (Singapore) in a containerized environment with persistent volumes for SQLite and logs, along with a CI/CD pipeline via GitHub Actions."
+      "Deployed the system to Fly.io in a containerized environment with persistent volumes for SQLite and logs, along with a CI/CD pipeline via GitHub Actions."
     ],
     stack: ["Python", "Claude", "Gemini", "Tavily", "Telegram Bot", "Fly.io"],
     category: "Agentic AI",
@@ -83,10 +83,10 @@ export const projects = [
     role: "Backend Developer",
     desk: "An AI-Powered WhatsApp Chatbot with Function Calling and Structured RAG to Automate Clinic Services.",
     impact: [
-      "Built an end-to-end WhatsApp AI chatbot to automate dental clinic scheduling—patients can check doctors’ schedules by name, day, or office hours in real time.",
-      "Implemented a Structured RAG (Retrieval-Augmented Generation) architecture via Function Calling using Groq Llama 3.3 70B — the AI autonomously decides when to retrieve schedule data from Google Sheets, then augments the results into the prompt to generate accurate and natural responses.",
-      "Designed a dual-layer parameter extraction pipeline — combining rule-based NLP (keyword & temporal resolver) with AI JSON extraction to ensure queries to the data source remain accurate.",
-      "Performed iterative prompt engineering and systematic bug fixes to minimize hallucinated responses — including deterministic JS overrides for AI extraction and constraint injection in system prompts."
+      "Built an end-to-end WhatsApp AI chatbot to automate dental clinic scheduling. Patients can check doctors’ schedules by name, day, or office hours in real time.",
+      "Implemented a Structured RAG (Retrieval-Augmented Generation) architecture via Function Calling using Groq Llama 3.3 70B. The AI autonomously decides when to retrieve schedule data from Google Sheets, then augments the results into the prompt to generate accurate and natural responses.",
+      "Designed a dual-layer parameter extraction pipeline. Combining rule-based NLP (keyword & temporal resolver) with AI JSON extraction to ensure queries to the data source remain accurate.",
+      "Performed iterative prompt engineering and systematic bug fixes to minimize hallucinated responses including deterministic JS overrides for AI extraction and constraint injection in system prompts."
     ],
     stack: ["Node.js", "Groq AI", "Gemini", "whatsapp-web.js", "Sheets API"],
     category: "AI & Chatbot",
@@ -116,7 +116,7 @@ export const projects = [
       "Developed a Chrome extension to translate WhatsApp Web messages in real time with an ON/OFF toggle, without an API key.",
       "Implemented a MutationObserver on the WhatsApp DOM to detect new messages in real time, and injected a “Translate” button into each chat bubble.",
       "Designed a 3-state toggle per message: original → translated → original, with an in-memory cache to avoid repeated requests within a chat.",
-      "Workaround for the WhatsApp Lexical Editor — using a ClipboardEvent paste to populate the message input field, since execCommand is blocked by the WhatsApp React editor."
+      "Workaround for the WhatsApp Lexical Editor and using a ClipboardEvent paste to populate the message input field, since execCommand is blocked by the WhatsApp React editor."
     ],
     stack: ["React 19", "Vite", "Tailwind", "CRXJS"],
     category: "Frontend",
@@ -146,9 +146,9 @@ export const projects = [
     desk: "Web-based expert system for early heart disease detection using Forward Chaining. Thesis project, validated 90.9% against medical records at RS Muhammadiyah Lamongan.",
     impact: [
       "Developed a web-based expert system (PHP Native, MySQL, Bootstrap 5) for the early detection of heart disease at Muhammadiyah Hospital in Lamongan.",
-      "Implemented the Forward Chaining method—the inference engine matches a patient’s symptoms with a rule base to generate a diagnosis along with a match percentage.",
+      "Implemented the Forward Chaining method and inference engine matches a patient’s symptoms with a rule base to generate a diagnosis along with a match percentage.",
       "Designed a multi-table relational database (symptoms, diseases, rule base, consultations) with 3 user roles (admin, doctor, patient).",
-      "Built a flexible knowledge base—rules can be added or modified without coding.",
+      "Built a flexible knowledge base where rules can be added or modified without coding.",
       "System validity test: **90.9% agreement with doctors’ diagnoses** based on 22 patient medical record samples.",
       "Deployed to public hosting (sistempakarfc.eclipta.web.id)."
     ],
@@ -229,7 +229,7 @@ export const experience = [
     role: "Agentic AI Integration & Web Developer",
     company: "Self-Directed Portfolio",
     period: "2025 — Present",
-    description: "4 production-deployed systems — POS with AI, agentic content bot, Structured RAG chatbot, Chrome extension. All shipped to real users."
+    description: "4 production-deployed systems: POS System Website with AI Chatbot Integration, agentic content bot, Structured RAG chatbot, Chrome extension. All shipped to real users."
   },
   {
     role: "MBKM Student Exchange",

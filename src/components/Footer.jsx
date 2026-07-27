@@ -74,7 +74,7 @@ const Footer = () => {
 
         <div className="mt-16 pt-8 border-t border-ink-800/80 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <p className="text-xs font-mono text-ink-500">
-            © 2026 — Built with React 19, Vite, Tailwind v4
+            © 2026. Built with React 19, Vite, Tailwind v4
           </p>
           <p className="text-xs font-mono text-ink-500 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
