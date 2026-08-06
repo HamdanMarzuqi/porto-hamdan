@@ -86,7 +86,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
       aria-labelledby="modal-title"
     >
       <div
-        className="relative w-full max-w-5xl bg-ink-900 border border-ink-800 rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-7xl bg-ink-900 border border-ink-800 rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Modal */}
@@ -137,10 +137,10 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
         {/* Modal Main Body: 2-column layout (gallery left, info right) */}
         <div className="flex-1 overflow-hidden flex flex-col lg:flex-row min-h-0">
           {/* LEFT: Gallery Column */}
-          <div className="lg:w-[62%] lg:border-r border-ink-800 flex flex-col min-h-0 lg:overflow-y-auto p-3.5 sm:p-6 space-y-4">
+          <div className="lg:w-[66%] lg:border-r border-ink-800 flex flex-col min-h-0 lg:overflow-y-auto p-3.5 sm:p-6 space-y-4">
             {/* Main Image Lightbox Viewer dengan Touch Swipe Gesture */}
             <div
-              className="relative aspect-[16/9] w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y shrink-0"
+              className="relative w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y shrink-0 lg:h-full"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -202,7 +202,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
           </div>
 
           {/* RIGHT: Info Column (scrollable independently) */}
-          <div className="lg:w-[38%] flex flex-col min-h-0 overflow-y-auto p-3.5 sm:p-6 space-y-4">
+          <div className="lg:w-[34%] flex flex-col min-h-0 overflow-y-auto p-3.5 sm:p-6 space-y-4">
             {/* Project Info & Impact Details */}
             <div className="space-y-4">
               <div>
