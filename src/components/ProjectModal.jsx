@@ -217,8 +217,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
                 <h4 className="font-mono text-xs uppercase tracking-widest text-ink-400 mb-2">
                   Highlights & Implementation:
                 </h4>
-                <ul className="grid sm:grid-cols-2 gap-2.5">
-                  {project.impact.map((item, i) => (
+                <ul className="space-y-2">{project.impact.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-ink-300 bg-ink-950/40 p-2.5 rounded border border-ink-800/50">
                       <FiCheckCircle className="text-accent-400 shrink-0 mt-0.5" size={13} />
                       <span>{item}</span>
