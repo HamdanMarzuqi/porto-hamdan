@@ -106,7 +106,7 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
   return (
     <article
       ref={reveal.ref}
-      className={`group card min-w-[72vw] md:min-w-0 snap-center rounded-lg overflow-hidden flex flex-col ${reveal.cls} hover:-translate-y-1`}
+      className={`group card min-w-[72vw] md:min-w-0 snap-center rounded-lg overflow-hidden flex flex-col transition-transform duration-300 active:scale-[0.985] md:hover:-translate-y-1 md:hover:shadow-[0_18px_45px_-24px_rgba(139,92,246,0.65)] ${reveal.cls}`}
       style={reveal.style}
     >
       <div
@@ -138,10 +138,10 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
         </div>
       </div>
 
-      <div className="p-6 flex flex-col flex-1">
+      <div className="p-3.5 md:p-6 flex flex-col flex-1">
         <div className="flex items-center justify-between gap-2 mb-2">
           <h3
-            className="text-lg font-display font-semibold text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
+            className="text-base md:text-lg font-display font-semibold leading-tight text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
             onClick={() => onOpenModal(project)}
           >
             {project.nama}
@@ -177,22 +177,22 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
           {project.role}
         </p>
 
-        <p className="text-sm text-ink-300 leading-relaxed mb-4 line-clamp-3">{project.desk}</p>
+        <p className="text-xs md:text-sm text-ink-300 leading-relaxed mb-3 md:mb-4 line-clamp-3">{project.desk}</p>
 
         <button
           onClick={() => onOpenModal(project)}
-          className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-accent-400 hover:text-accent-300 transition-colors mb-5 w-fit"
+          className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-mono uppercase tracking-wider text-accent-400 hover:text-accent-300 transition-colors mb-3 md:mb-5 w-fit"
           aria-label={`Read more about ${project.nama}`}
         >
           Read More
           <FiArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </button>
 
-        <div className="mt-auto flex flex-wrap gap-1.5 pt-4 border-t border-ink-800/80">
+        <div className="mt-auto flex flex-wrap gap-1 pt-3 md:pt-4 border-t border-ink-800/80">
           {project.stack.map((s) => (
             <span
               key={s}
-              className="px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-ink-300 border border-ink-800 rounded bg-ink-900/50"
+              className="px-2 py-0.5 md:px-2.5 md:py-1 font-mono text-[9px] md:text-[10px] uppercase tracking-wider text-ink-400 border border-ink-800 rounded bg-ink-950/40"
             >
               {s}
             </span>
