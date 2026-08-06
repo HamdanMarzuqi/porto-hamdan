@@ -69,6 +69,16 @@
     font-family: var(--font-mono);
   }
 
+  /* Hide horizontal rails on touch carousels while preserving swipe. */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   /* ─── Text gradients ─── */
   .text-gradient {
     background: linear-gradient(180deg, #fafafa 0%, #a1a1aa 100%);

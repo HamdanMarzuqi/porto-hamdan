@@ -106,7 +106,7 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
   return (
     <article
       ref={reveal.ref}
-      className={`group card rounded-lg overflow-hidden flex flex-col ${reveal.cls} hover:-translate-y-1`}
+      className={`group card min-w-[84vw] md:min-w-0 snap-center rounded-lg overflow-hidden flex flex-col ${reveal.cls} hover:-translate-y-1`}
       style={reveal.style}
     >
       <div
@@ -140,38 +140,38 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
 
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-center justify-between gap-2 mb-2">
-            <h3
-              className="text-lg font-display font-semibold text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
-              onClick={() => onOpenModal(project)}
-            >
-              {project.nama}
-            </h3>
-            <div className="flex items-center shrink-0 gap-1">
-              {project.links?.demo && (
-                <a
-                  href={project.links.demo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-1.5 text-ink-400 hover:text-accent-400 transition-colors"
-                  aria-label="Open live demo"
-                  title="Live demo"
-                >
-                  <FiExternalLink size={16} />
-                </a>
-              )}
-              {project.links?.github && (
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="shrink-0 p-1.5 text-ink-400 hover:text-accent-400 transition-colors"
-                  aria-label="View source on GitHub"
-                >
-                  <FiGithub size={16} />
-                </a>
-              )}
-            </div>
+          <h3
+            className="text-lg font-display font-semibold text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
+            onClick={() => onOpenModal(project)}
+          >
+            {project.nama}
+          </h3>
+          <div className="flex items-center shrink-0 gap-1">
+            {project.links?.demo && (
+              <a
+                href={project.links.demo}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 text-ink-400 hover:text-accent-400 transition-colors"
+                aria-label="Open live demo"
+                title="Live demo"
+              >
+                <FiExternalLink size={16} />
+              </a>
+            )}
+            {project.links?.github && (
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="shrink-0 p-1.5 text-ink-400 hover:text-accent-400 transition-colors"
+                aria-label="View source on GitHub"
+              >
+                <FiGithub size={16} />
+              </a>
+            )}
           </div>
+        </div>
 
         <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-3">
           {project.role}
@@ -296,7 +296,7 @@ const App = () => {
               </div>
               <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
                 {[
-                  { num: "4+", label: "Production projects" },
+                  { num: "8+", label: "projects finished" },
                   { num: "3+", label: "LLM providers integrated" },
                   { num: "90.9%", label: "Thesis validation" }
                 ].map((s) => (
@@ -431,27 +431,25 @@ const App = () => {
           </div>
 
           {/* Category filter tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          <div className="flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-2 mb-8 md:mb-12 overflow-x-auto pb-2 md:pb-0 snap-x snap-mandatory scrollbar-none">
             {projectTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setProjectTab(tab.id)}
-                className={`group inline-flex items-center gap-2 px-4 py-2 rounded-full border font-mono text-xs uppercase tracking-widest transition-all duration-300 ${
-                  projectTab === tab.id
-                    ? "border-accent-500/70 bg-accent-500/10 text-accent-400 shadow-[0_0_20px_-6px_rgba(168,85,247,0.5)]"
-                    : "border-ink-800 text-ink-400 hover:border-accent-500/40 hover:text-ink-200"
-                }`}
+                className={`group inline-flex shrink-0 snap-start items-center gap-2 px-3.5 md:px-4 py-2 rounded-full border font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 ${projectTab === tab.id
+                  ? "border-accent-500/70 bg-accent-500/10 text-accent-400 shadow-[0_0_20px_-6px_rgba(168,85,247,0.5)]"
+                  : "border-ink-800 text-ink-400 hover:border-accent-500/40 hover:text-ink-200"
+                  }`}
               >
                 {tab.id === "ai" && <FiCpu size={13} />}
                 {tab.id === "web" && <FiCode size={13} />}
                 {tab.id === "all" && <FiBox size={13} />}
                 <span>{tab.label}</span>
                 <span
-                  className={`px-1.5 py-0.5 rounded text-[10px] leading-none ${
-                    projectTab === tab.id
-                      ? "bg-accent-500/20 text-accent-300"
-                      : "bg-ink-800/80 text-ink-500 group-hover:text-ink-300"
-                  }`}
+                  className={`px-1.5 py-0.5 rounded text-[10px] leading-none ${projectTab === tab.id
+                    ? "bg-accent-500/20 text-accent-300"
+                    : "bg-ink-800/80 text-ink-500 group-hover:text-ink-300"
+                    }`}
                 >
                   {tab.count}
                 </span>
@@ -459,7 +457,7 @@ const App = () => {
             ))}
           </div>
 
-          <div key={projectTab} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div key={projectTab} className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none -mx-4 px-4 md:mx-0 md:px-0">
             {visibleProjects.map((p, i) => (
               <ProjectCard
                 key={p.id}
@@ -507,21 +505,20 @@ const App = () => {
                 <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-4 flex items-center gap-2">
                   <FiServer size={12} /> Tech stack
                 </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
                   {stack.map((s, i) => {
                     const Icon = stackIconMap[s.icon];
                     return (
                       <div
                         key={s.name}
-                        className={`group card p-4 rounded-md flex flex-col items-start gap-2 transition-all duration-700 ease-out ${skillsGrid.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                          } hover:-translate-y-0.5`}
+                        className={`group card p-2.5 sm:p-4 rounded-md flex flex-col items-start gap-1.5 sm:gap-2 transition-all duration-700 ease-out ${skillsGrid.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} hover:-translate-y-0.5`}
                         style={skillsGrid.visible ? { transitionDelay: `${100 + i * 60}ms` } : {}}
                       >
                         <div className="text-ink-300 group-hover:text-accent-400 transition-colors">
-                          {Icon && <Icon size={20} />}
+                          {Icon && <Icon size={18} className="sm:w-5 sm:h-5" />}
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-ink-100">{s.name}</div>
+                          <div className="text-[11px] sm:text-sm font-medium leading-tight text-ink-100">{s.name}</div>
                         </div>
                       </div>
                     );
@@ -533,16 +530,16 @@ const App = () => {
                 <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-4 flex items-center gap-2">
                   <FiCpu size={12} /> Technical Capabilities & AI Integration
                 </p>
-                <div className="grid sm:grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
                   {aiSkills.map((skill, i) => (
                     <div
                       key={skill}
-                      className={`flex items-center gap-3 px-4 py-3 border border-ink-800 rounded-md bg-ink-900/30 transition-all duration-700 ease-out hover:border-accent-500/40 ${skillsAI.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                      className={`flex items-center gap-2 px-2.5 py-2 sm:gap-3 sm:px-4 sm:py-3 border border-ink-800 rounded-md bg-ink-900/30 transition-all duration-700 ease-out hover:border-accent-500/40 ${skillsAI.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                         }`}
                       style={skillsAI.visible ? { transitionDelay: `${i * 60}ms` } : {}}
                     >
-                      <FiZap className="text-accent-500 shrink-0" size={14} />
-                      <span className="text-sm text-ink-200">{skill}</span>
+                      <FiZap className="text-accent-500 shrink-0" size={12} />
+                      <span className="text-[11px] sm:text-sm leading-tight text-ink-200">{skill}</span>
                     </div>
                   ))}
                 </div>
@@ -550,7 +547,7 @@ const App = () => {
 
               <div
                 ref={skillsFocus.ref}
-                className={`card p-6 rounded-lg ${skillsFocus.cls}`}
+                className={`card p-4 sm:p-6 rounded-lg ${skillsFocus.cls}`}
                 style={skillsFocus.style}
               >
                 <div className="flex items-start gap-4">
@@ -559,7 +556,7 @@ const App = () => {
                     <p className="font-mono text-[10px] uppercase tracking-widest text-accent-400 mb-2">
                       Current focus
                     </p>
-                    <p className="text-ink-200 leading-relaxed">
+                    <p className="text-xs sm:text-base text-ink-200 leading-relaxed">
                       Building autonomous AI agents with Human-in-the-Loop approval, web development, frontend development, Structured RAG, and multi-tool function calling. Currently exploring <span className="text-ink-50">LangGraph</span> multi-agent orchestration and expanding WhatsApp & POS automation into scalable AI workflows.
                     </p>
                   </div>
