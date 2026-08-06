@@ -134,15 +134,17 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
           </div>
         </div>
 
-        {/* Modal Main Body (Scrollable) */}
-        <div className="overflow-y-auto flex-1 p-3.5 sm:p-6 space-y-5 sm:space-y-6">
-          {/* Main Image Lightbox Viewer dengan Touch Swipe Gesture */}
-          <div
-            className="relative aspect-[16/9] w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
+        {/* Modal Main Body: 2-column layout (gallery left, info right) */}
+        <div className="flex-1 overflow-hidden flex flex-col lg:flex-row min-h-0">
+          {/* LEFT: Gallery Column */}
+          <div className="lg:w-[58%] lg:border-r border-ink-800 flex flex-col min-h-0 lg:overflow-y-auto p-3.5 sm:p-6 space-y-4">
+            {/* Main Image Lightbox Viewer dengan Touch Swipe Gesture */}
+            <div
+              className="relative aspect-[16/10] w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y shrink-0"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
             <img
               src={images[currentIndex]}
               alt={`${project.nama} screenshot ${currentIndex + 1}`}
@@ -197,10 +199,13 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
               ))}
             </div>
           )}
+          </div>
 
-          {/* Project Info & Impact Details */}
-          <div className="pt-2 border-t border-ink-800/80 space-y-4">
-            <div>
+          {/* RIGHT: Info Column (scrollable independently) */}
+          <div className="lg:w-[42%] flex flex-col min-h-0 overflow-y-auto p-3.5 sm:p-6 space-y-4">
+            {/* Project Info & Impact Details */}
+            <div className="space-y-4">
+              <div>
               <p className="font-mono text-xs uppercase tracking-widest text-accent-500 mb-1">
                 {project.role}
               </p>
@@ -233,6 +238,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
                   {tech}
                 </span>
               ))}
+            </div>
             </div>
           </div>
         </div>
