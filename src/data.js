@@ -9,6 +9,7 @@ import Proyek6 from "/assets/proyek/Proyek6.jpeg";
 export const projects = [
   {
     id: "malika-pos",
+    group: "web",
     gambar: Proyek1,
     // Galeri screenshot produk & dashboard POS
     galeri: [
@@ -42,6 +43,7 @@ export const projects = [
   },
   {
     id: "hr-threads",
+    group: "ai",
     gambar: Proyek2,
     galeri: [
       Proyek2,
@@ -72,6 +74,7 @@ export const projects = [
   },
   {
     id: "dental-wa",
+    group: "ai",
     gambar: Proyek3,
     galeri: [
       Proyek3,
@@ -98,6 +101,7 @@ export const projects = [
   },
   {
     id: "wa-translator",
+    group: "web",
     gambar: Proyek4,
     galeri: [
       Proyek4,
@@ -128,6 +132,7 @@ export const projects = [
   },
   {
     id: "sistem-pakar",
+    group: "web",
     gambar: Proyek5,
     galeri: [
       Proyek5,
@@ -162,6 +167,7 @@ export const projects = [
   },
   {
     id: "infra-router",
+    group: "ai",
     gambar: Proyek6,
     galeri: [
       Proyek6,
@@ -189,6 +195,7 @@ export const projects = [
   },
   {
       id: "streetwear",
+      group: "web",
       gambar: "/assets/proyek/streetwear/streetwear-1.jpg",
       galeri: [
         "/assets/proyek/streetwear/streetwear-1.jpg",
@@ -214,6 +221,7 @@ export const projects = [
   },
   {
     id: "luminara",
+    group: "web",
     gambar: "/assets/proyek/luminara/luminara-1.jpg",
     galeri: [
       "/assets/proyek/luminara/luminara-1.jpg",
@@ -238,6 +246,7 @@ export const projects = [
   },
   {
     id: "content-planner",
+    group: "web",
     gambar: "/assets/proyek/content-planner/content-planner-1.jpg",
     galeri: [
       "/assets/proyek/content-planner/content-planner-1.jpg",
@@ -262,6 +271,7 @@ export const projects = [
   },
   {
     id: "car-rent",
+    group: "web",
     gambar: "/assets/proyek/car-rent/car-rent-1.jpg",
     galeri: [
       "/assets/proyek/car-rent/car-rent-1.jpg",
@@ -287,6 +297,7 @@ export const projects = [
   },
   {
     id: "aws-affiliate",
+    group: "ai",
     gambar: "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
     galeri: [
       "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",

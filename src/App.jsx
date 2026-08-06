@@ -208,9 +208,17 @@ const App = () => {
   const typed = useTypewriter(TYPED_WORDS);
   const { show: showScrollTop, scrollToTop } = useScrollToTop();
   const [activeModalProject, setActiveModalProject] = useState(null);
+  const [projectTab, setProjectTab] = useState("all");
 
-  const featured = projects.filter((p) => p.featured);
-  const other = projects.filter((p) => !p.featured);
+  const aiProjects = projects.filter((p) => p.group === "ai");
+  const webProjects = projects.filter((p) => p.group === "web");
+  const visibleProjects =
+    projectTab === "ai" ? aiProjects : projectTab === "web" ? webProjects : projects;
+  const projectTabs = [
+    { id: "all", label: "All Projects", count: projects.length },
+    { id: "ai", label: "AI Agent & Automation", count: aiProjects.length },
+    { id: "web", label: "Web Development", count: webProjects.length },
+  ];
 
   // Scroll reveal each ref is attached to its own element
   const aboutSection = useScrollReveal({ animation: "fade-up", delay: 0 });
@@ -422,19 +430,37 @@ const App = () => {
             </a>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-            {featured.map((p, i) => (
-              <ProjectCard
-                key={p.id}
-                project={p}
-                featured
-                index={i}
-                onOpenModal={(proj) => setActiveModalProject(proj)}
-              />
+          {/* Category filter tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+            {projectTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setProjectTab(tab.id)}
+                className={`group inline-flex items-center gap-2 px-4 py-2 rounded-full border font-mono text-xs uppercase tracking-widest transition-all duration-300 ${
+                  projectTab === tab.id
+                    ? "border-accent-500/70 bg-accent-500/10 text-accent-400 shadow-[0_0_20px_-6px_rgba(168,85,247,0.5)]"
+                    : "border-ink-800 text-ink-400 hover:border-accent-500/40 hover:text-ink-200"
+                }`}
+              >
+                {tab.id === "ai" && <FiCpu size={13} />}
+                {tab.id === "web" && <FiCode size={13} />}
+                {tab.id === "all" && <FiBox size={13} />}
+                <span>{tab.label}</span>
+                <span
+                  className={`px-1.5 py-0.5 rounded text-[10px] leading-none ${
+                    projectTab === tab.id
+                      ? "bg-accent-500/20 text-accent-300"
+                      : "bg-ink-800/80 text-ink-500 group-hover:text-ink-300"
+                  }`}
+                >
+                  {tab.count}
+                </span>
+              </button>
             ))}
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {other.map((p, i) => (
+
+          <div key={projectTab} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {visibleProjects.map((p, i) => (
               <ProjectCard
                 key={p.id}
                 project={p}
