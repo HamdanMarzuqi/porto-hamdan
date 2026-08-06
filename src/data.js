@@ -188,16 +188,14 @@ export const projects = [
     featured: false
   },
   {
-    id: "infra-router",
-    gambar: Proyek6,
-    galeri: [
-      Proyek6,
-      "/assets/proyek/hermes-9router/hermes-9router-2.png",
-      "/assets/proyek/hermes-9router/hermes-9router-3.png",
-      "/assets/proyek/hermes-9router/hermes-9router-4.png",
-      "/assets/proyek/hermes-9router/hermes-9router-1.png"
-    ],
-    nama: "StreetWear.co - E-Commerce Website",
+      id: "streetwear",
+      gambar: "/assets/proyek/streetwear/streetwear-1.jpg",
+      galeri: [
+        "/assets/proyek/streetwear/streetwear-1.jpg",
+        "/assets/proyek/streetwear/streetwear-2.jpg",
+        "/assets/proyek/streetwear/streetwear-3.jpg"
+      ],
+      nama: "StreetWear.co - E-Commerce Website",
     role: "AI & Fullstack Web Developer",
     desk: "Deployed a premium streetwear e-commerce platform with a Cyber-Brutalist aesthetic, built with Next.js 15 App Router, React 19, and TypeScript. It features interactive 3D animations, a real-time shopping cart system, JWT authentication, and payment gateway integrations with Stripe and PayPal.",
     impact: [
@@ -215,14 +213,12 @@ export const projects = [
     featured: false
   },
   {
-    id: "infra-router",
-    gambar: Proyek6,
+    id: "luminara",
+    gambar: "/assets/proyek/luminara/luminara-1.jpg",
     galeri: [
-      Proyek6,
-      "/assets/proyek/hermes-9router/hermes-9router-2.png",
-      "/assets/proyek/hermes-9router/hermes-9router-3.png",
-      "/assets/proyek/hermes-9router/hermes-9router-4.png",
-      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+      "/assets/proyek/luminara/luminara-1.jpg",
+      "/assets/proyek/luminara/luminara-2.jpg",
+      "/assets/proyek/luminara/luminara-3.jpg"
     ],
     nama: "Luminara Aesthetic Dental Clinic Website",
     role: "AI & Fullstack Web Developer",
@@ -241,14 +237,12 @@ export const projects = [
     featured: false
   },
   {
-    id: "infra-router",
-    gambar: Proyek6,
+    id: "content-planner",
+    gambar: "/assets/proyek/content-planner/content-planner-1.jpg",
     galeri: [
-      Proyek6,
-      "/assets/proyek/hermes-9router/hermes-9router-2.png",
-      "/assets/proyek/hermes-9router/hermes-9router-3.png",
-      "/assets/proyek/hermes-9router/hermes-9router-4.png",
-      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+      "/assets/proyek/content-planner/content-planner-1.jpg",
+      "/assets/proyek/content-planner/content-planner-2.jpg",
+      "/assets/proyek/content-planner/content-planner-3.jpg"
     ],
     nama: "Content Generator Dashboard - Google Apps Script + Google Sheets Scheduling Tool",
     role: "Web Developer & Google Workspace Integration",
@@ -267,14 +261,12 @@ export const projects = [
     featured: false
   },
   {
-    id: "infra-router",
-    gambar: Proyek6,
+    id: "car-rent",
+    gambar: "/assets/proyek/car-rent/car-rent-1.jpg",
     galeri: [
-      Proyek6,
-      "/assets/proyek/hermes-9router/hermes-9router-2.png",
-      "/assets/proyek/hermes-9router/hermes-9router-3.png",
-      "/assets/proyek/hermes-9router/hermes-9router-4.png",
-      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+      "/assets/proyek/car-rent/car-rent-1.jpg",
+      "/assets/proyek/car-rent/car-rent-2.jpg",
+      "/assets/proyek/car-rent/car-rent-3.jpg"
     ],
     nama: "AlexandreCar Rent! - E-Commerce Website",
     role: "Web Developer",
@@ -294,14 +286,12 @@ export const projects = [
     featured: false
   },
   {
-    id: "infra-router",
-    gambar: Proyek6,
+    id: "aws-affiliate",
+    gambar: "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
     galeri: [
-      Proyek6,
-      "/assets/proyek/hermes-9router/hermes-9router-2.png",
-      "/assets/proyek/hermes-9router/hermes-9router-3.png",
-      "/assets/proyek/hermes-9router/hermes-9router-4.png",
-      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+      "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
+      "/assets/proyek/aws-affiliate/aws-affiliate-2.jpg",
+      "/assets/proyek/aws-affiliate/aws-affiliate-3.jpg"
     ],
     nama: "AWS Affiliate Threads Agent",
     role: "Web Search-Augmented-Generation Architecture & AI Integration",

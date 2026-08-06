@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiCheckCircle } from "react-icons/fi";
+import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiCheckCircle, FiExternalLink } from "react-icons/fi";
 
 const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -101,6 +101,18 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
           </div>
 
           <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+            {project.links?.demo && (
+              <a
+                href={project.links.demo}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 bg-accent-500/10 border border-accent-500/40 text-accent-400 hover:bg-accent-500/20 rounded-md font-mono text-[10px] sm:text-[11px] uppercase tracking-wider transition-all"
+                aria-label="Open live demo"
+              >
+                <FiExternalLink size={13} />
+                <span>Live Demo</span>
+              </a>
+            )}
             {project.links?.github && (
               <a
                 href={project.links.github}

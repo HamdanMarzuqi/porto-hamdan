@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useScrollReveal } from "./hooks/useScrollReveal.js";
 
-import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle, FiMaximize2, FiImage, FiCode } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle, FiMaximize2, FiImage, FiCode, FiExternalLink } from "react-icons/fi";
 import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiExpress, SiSqlite, SiGithub } from "react-icons/si";
 import { projects, stack, aiSkills, experience } from "./data";
 import ProjectModal from "./components/ProjectModal.jsx";
@@ -139,25 +139,39 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-        <div className="flex items-start justify-between gap-4 mb-2">
-          <h3
-            className="text-xl font-display font-semibold text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
-            onClick={() => onOpenModal(project)}
-          >
-            {project.nama}
-          </h3>
-          {project.links?.github && (
-            <a
-              href={project.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className="shrink-0 p-1.5 text-ink-400 hover:text-accent-400 transition-colors"
-              aria-label="View source on GitHub"
+        <div className="flex items-center justify-between gap-2 mb-2">
+            <h3
+              className="text-lg font-display font-semibold text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
+              onClick={() => onOpenModal(project)}
             >
-              <FiGithub size={16} />
-            </a>
-          )}
-        </div>
+              {project.nama}
+            </h3>
+            <div className="flex items-center shrink-0 gap-1">
+              {project.links?.demo && (
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-1.5 text-ink-400 hover:text-accent-400 transition-colors"
+                  aria-label="Open live demo"
+                  title="Live demo"
+                >
+                  <FiExternalLink size={16} />
+                </a>
+              )}
+              {project.links?.github && (
+                <a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="shrink-0 p-1.5 text-ink-400 hover:text-accent-400 transition-colors"
+                  aria-label="View source on GitHub"
+                >
+                  <FiGithub size={16} />
+                </a>
+              )}
+            </div>
+          </div>
 
         <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-3">
           {project.role}
@@ -408,7 +422,7 @@ const App = () => {
             </a>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             {featured.map((p, i) => (
               <ProjectCard
                 key={p.id}
@@ -419,7 +433,7 @@ const App = () => {
               />
             ))}
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {other.map((p, i) => (
               <ProjectCard
                 key={p.id}
