@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useScrollReveal } from "./hooks/useScrollReveal.js";
 
-import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiCheckCircle, FiMaximize2, FiImage, FiCode, FiExternalLink } from "react-icons/fi";
+import { FiArrowDown, FiArrowUpRight, FiArrowUp, FiGithub, FiZap, FiCpu, FiServer, FiBox, FiMaximize2, FiImage, FiCode, FiExternalLink } from "react-icons/fi";
 import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiExpress, SiSqlite, SiGithub } from "react-icons/si";
 import { projects, stack, aiSkills, experience } from "./data";
 import ProjectModal from "./components/ProjectModal.jsx";
@@ -177,16 +177,16 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
           {project.role}
         </p>
 
-        <p className="text-sm text-ink-300 leading-relaxed mb-4">{project.desk}</p>
+        <p className="text-sm text-ink-300 leading-relaxed mb-4 line-clamp-3">{project.desk}</p>
 
-        <ul className="space-y-1.5 mb-5">
-          {project.impact.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-xs text-ink-400">
-              <FiCheckCircle className="text-accent-500 shrink-0 mt-0.5" size={12} />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+        <button
+          onClick={() => onOpenModal(project)}
+          className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-accent-400 hover:text-accent-300 transition-colors mb-5 w-fit"
+          aria-label={`Read more about ${project.nama}`}
+        >
+          Read More
+          <FiArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </button>
 
         <div className="mt-auto flex flex-wrap gap-1.5 pt-4 border-t border-ink-800/80">
           {project.stack.map((s) => (
