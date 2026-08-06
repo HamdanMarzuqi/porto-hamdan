@@ -63,7 +63,7 @@ export const projects = [
       "Deployed the system to Fly.io in a containerized environment with persistent volumes for SQLite and logs, along with a CI/CD pipeline via GitHub Actions."
     ],
     stack: ["Python", "Claude", "Gemini", "Tavily", "Telegram Bot", "Fly.io"],
-    category: "Agentic AI",
+    category: "AI Automation Agent",
     links: {
       github: "https://github.com/HamdanMarzuqi/hr-threads-agent",
       demo: null
@@ -153,7 +153,7 @@ export const projects = [
       "Deployed to public hosting (sistempakarfc.eclipta.web.id)."
     ],
     stack: ["PHP", "MySQL", "Bootstrap 5"],
-    category: "Backend & Logic",
+    category: "Web Development",
     links: {
       github: "https://github.com/HamdanMarzuqi/Sistem-Pakar_FC",
       demo: null
@@ -183,6 +183,139 @@ export const projects = [
     category: "AI Infrastructure",
     links: {
       github: null,
+      demo: null
+    },
+    featured: false
+  },
+  {
+    id: "infra-router",
+    gambar: Proyek6,
+    galeri: [
+      Proyek6,
+      "/assets/proyek/hermes-9router/hermes-9router-2.png",
+      "/assets/proyek/hermes-9router/hermes-9router-3.png",
+      "/assets/proyek/hermes-9router/hermes-9router-4.png",
+      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+    ],
+    nama: "StreetWear.co - E-Commerce Website",
+    role: "AI & Fullstack Web Developer",
+    desk: "Deployed a premium streetwear e-commerce platform with a Cyber-Brutalist aesthetic, built with Next.js 15 App Router, React 19, and TypeScript. It features interactive 3D animations, a real-time shopping cart system, JWT authentication, and payment gateway integrations with Stripe and PayPal.",
+    impact: [
+      "Building a streetwear e-commerce platform with Next.js 15 + TypeScript and React Server Components (RSC) architecture, including a product catalog, product detail pages, shopping cart, checkout flow, and user authentication (https://street-wear-co-web-9i8k.vercel.app/)",
+      "Implemented an auto-saved shopping cart. Cart contents are retained even if the visitor closes their browser and returns later, without needing to log in.",
+      "Developed a server-side multi-payment checkout flow (Stripe & PayPal) with server-side price recalculation to prevent price manipulation, combined with Zod input validation and React Hook Form on the checkout form.",
+      "Designing a design system with Tailwind CSS (cyber-brutalist, dark mode), Framer Motion animations (3D tilt, glitch text), and Lenis smooth scrolling with a responsive UI."
+    ],
+    stack: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Zustand"],
+    category: "Web Development",
+    links: {
+      github: "https://github.com/HamdanMarzuqi/StreetWear.co_web",
+      demo: "https://street-wear-co-web-9i8k.vercel.app/"
+    },
+    featured: false
+  },
+  {
+    id: "infra-router",
+    gambar: Proyek6,
+    galeri: [
+      Proyek6,
+      "/assets/proyek/hermes-9router/hermes-9router-2.png",
+      "/assets/proyek/hermes-9router/hermes-9router-3.png",
+      "/assets/proyek/hermes-9router/hermes-9router-4.png",
+      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+    ],
+    nama: "Luminara Aesthetic Dental Clinic Website",
+    role: "AI & Fullstack Web Developer",
+    desk: "Personal project: Deployed a React + Vite-based dental clinic profile website featuring multilingual support (ID/EN), an online booking system integrated with the WhatsApp API, and scroll animations implemented using the Intersection Observer API alone, without any additional libraries.",
+    impact: [
+      "Built the Luminara Dental Clinic website using React 19 + Vite, implementing a component-based architecture with 12 modular sections (Hero, Treatments, Doctors, FAQ, etc.) (https://luminara-dental-clinic.vercel.app/)",
+      "Implemented a multilingual system (Indonesian/English) using the React Context API and persistence via localStorage; all UI content switches languages in real time without a page reload.",
+      "Built an online booking feature that generates automatically formatted messages and redirects users to the Admin’s WhatsApp via the Deep Link API, complete with validation for Indonesian phone number formats (08xxx/+62), client-side form validation, and protection against duplicate submissions."
+    ],
+    stack: ["React 19", "Vite", "Tailwind CSS"],
+    category: "Web Development",
+    links: {
+      github: "https://github.com/HamdanMarzuqi/Luminara-Dental-Clinic",
+      demo: "https://luminara-dental-clinic.vercel.app/"
+    },
+    featured: false
+  },
+  {
+    id: "infra-router",
+    gambar: Proyek6,
+    galeri: [
+      Proyek6,
+      "/assets/proyek/hermes-9router/hermes-9router-2.png",
+      "/assets/proyek/hermes-9router/hermes-9router-3.png",
+      "/assets/proyek/hermes-9router/hermes-9router-4.png",
+      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+    ],
+    nama: "Content Generator Dashboard - Google Apps Script + Google Sheets Scheduling Tool",
+    role: "Web Developer & Google Workspace Integration",
+    desk: "Personal project: Pokémon Content Planner Dashboard, a social media content management web app with a retro pixel-art aesthetic, is built using Vanilla JS + Web Audio API, integrated directly into Google Sheets as a database via Google Apps Script, and runs as a web app or as an embedded modal within a spreadsheet.",
+    impact: [
+      "Build a content management dashboard for 3+ social media platforms (Instagram, TikTok, YouTube, Threads, etc.) using Vanilla JS (use incognito mode if it fails: https://script.google.com/macros/s/AKfycbzYCvuOJYRNPDbBmewCUQTEAc_a4I3fSIWykxVLbhA_u9F7c7jRc7lJ0rRQkn250myX0A/exec)",
+      "Integrate Google Apps Script as a backend server for form submissions, which then detects the Apps Script environment (window.google.script.run) and automatically syncs data to Google Sheets as a database.",
+      "Design a retro pixel-art interface in the style of Pokémon games, with added sound effects for clicks, modal openings, and success chimes to combine gameplay and productivity, making it easy for users to manage their daily schedules."
+    ],
+    stack: ["Vanilla.js", "HTML/CSS", "Google Apps Script", "Google Sheets"],
+    category: "Tools & Web Development",
+    links: {
+      github: "https://github.com/HamdanMarzuqi/Content-Planner-Dashboard-Social-Media-Scheduling-Tool-",
+      demo: "https://script.google.com/macros/s/AKfycbzYCvuOJYRNPDbBmewCUQTEAc_a4I3fSIWykxVLbhA_u9F7c7jRc7lJ0rRQkn250myX0A/exec"
+    },
+    featured: false
+  },
+  {
+    id: "infra-router",
+    gambar: Proyek6,
+    galeri: [
+      Proyek6,
+      "/assets/proyek/hermes-9router/hermes-9router-2.png",
+      "/assets/proyek/hermes-9router/hermes-9router-3.png",
+      "/assets/proyek/hermes-9router/hermes-9router-4.png",
+      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+    ],
+    nama: "AlexandreCar Rent! - E-Commerce Website",
+    role: "Web Developer",
+    desk: "Personal Project: A modern car rental booking platform built with Next.js 16 App Router + TypeScript + Supabase (PostgreSQL), featuring a booking widget with real-time price estimates, Framer Motion spring physics animations, and REST API routes with Zod validation",
+    impact: [
+      "Build a one-page car rental company profile using Next.js 16 App Router + TypeScript, including a fleet catalog, rental packages, how it works, booking, testimonials, and contact information.",
+      "Designing an interactive booking widget that includes selection of rental type (daily/weekly/monthly), pickup and drop-off locations, pickup and drop-off dates, and status feedback after submission.",
+      "Building the /api/contact API route with server-side validation via Zod to validate renter contact information (name, email, phone number) before processing, then storing it in the database (Supabase) once configured.",
+      "Design the user interface using Framer Motion for animations and the Tailwind CSS 4 design system—ensuring a responsive layout—and develop it with comprehensive documentation (PRD, architecture, schematics, security, design, and rules)."
+    ],
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Zod"],
+    category: "Web Development",
+    links: {
+      github: "https://github.com/HamdanMarzuqi/AlexandreCar_Rent-_website",
+      demo: "https://alexandre-car-rent-website.vercel.app/"
+    },
+    featured: false
+  },
+  {
+    id: "infra-router",
+    gambar: Proyek6,
+    galeri: [
+      Proyek6,
+      "/assets/proyek/hermes-9router/hermes-9router-2.png",
+      "/assets/proyek/hermes-9router/hermes-9router-3.png",
+      "/assets/proyek/hermes-9router/hermes-9router-4.png",
+      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+    ],
+    nama: "AWS Affiliate Threads Agent",
+    role: "Web Search-Augmented-Generation Architecture & AI Integration",
+    desk: "A Python-based autonomous AI agent that automatically generates Amazon affiliate copy (for the U.S. market) using the Google Gemini and Tavily APIs, publishes it to the Meta Threads API, and implements a human-in-the-loop review process via a Telegram bot",
+    impact: [
+      "Build an automated AI agent based on Python and a Telegram bot that generates Amazon affiliate marketing content on the Threads platform, from product research and draft writing by an AI model to automated publication on Threads via the Meta Graph API.",
+      "Design a human-in-the-loop workflow (human review gate), where AI-generated content drafts are sent to Telegram, reviewed and approved by an operator before being uploaded to Threads",
+      "Integrating automated market research with the Tavily Search API to track trending products, a database of 527 products across 9 niches (tech, home office, lifestyle, etc.), and an SQLite database to store the history of all content ever created.",
+      " Implementing compliance automation by automatically adding the #Ad tag (due to the U.S. market) to every Threads post and performing data searches via the Tavily API."
+    ],
+    stack: ["Python", "Telegram Bot API", "Meta Threads API", "Tavily", "LLM/ Gemini"],
+    category: "AI Automation Agent",
+    links: {
+      github: "https://github.com/HamdanMarzuqi/AWS-Affiliate-Threads-Agent",
       demo: null
     },
     featured: false

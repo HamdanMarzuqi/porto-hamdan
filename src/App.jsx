@@ -241,7 +241,7 @@ const App = () => {
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gradient leading-[1.05] mb-6">
                 Hamdan Akbar
                 <br />
-                <span className="text-gradient-accent">Marzuqi.</span>
+                <span className="text-gradient-accent">Marzuqi, S.Kom.</span>
               </h1>
 
               <div className="font-mono text-base sm:text-lg text-ink-300 mb-6 h-7">
