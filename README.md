@@ -1,58 +1,74 @@
-# react-porto2
+Built with React 19 + Vite + Tailwind CSS v4.
 
-Personal portfolio for **Hamdan Akbar Marzuqi** — Web Developer & Agentic AI Integration.
-
-Built with React 19, Vite, Tailwind CSS v4, and react-icons. Designed as a full-stack developer's portfolio: information-dense, technically honest, and free of marketing fluff.
+---
 
 ## Stack
 
-- **React 19** — UI library
-- **Vite** (rolldown) — dev server & bundler
-- **Tailwind CSS v4** — styling via CSS-first config
-- **react-icons** — icon set (Feather + Simple Icons)
+- React 19
+- Vite (rolldown-vite 7.2.5)
+- Tailwind CSS v4
+- react-icons v5
+
+---
 
 ## Structure
 
 ```
 src/
 ├── components/
-│   ├── Navbar.jsx       # Sticky nav with section index (01-05) and active-section tracking
-│   ├── Footer.jsx       # Multi-column footer with social links
-│   └── PreLoader.jsx    # Sub-1s preloader with progress bar
-├── data.js              # Project, stack, AI skills, experience data
-├── App.jsx              # Sections: hero / about / projects / skills / contact
-├── main.jsx             # Entry point
-└── index.css            # Tailwind v4 theme tokens + utilities
+│   ├── Navbar.jsx
+│   ├── Footer.jsx
+│   ├── PreLoader.jsx
+│   └── ProjectModal.jsx     # image gallery modal
+├── hooks/
+│   └── useScrollReveal.js
+├── App.jsx                  # all sections in one file
+├── data.js                  # all content lives here
+├── index.css
+└── main.jsx
+
+public/assets/
+├── Hamdan_Red_Background.png
+└── proyek/                  # project screenshots
 ```
 
-## Sections
+---
 
-| # | Section | Purpose |
-|---|---------|---------|
-| 01 | Hero | Identity + typewriter role + key stats |
-| 02 | About | Builder/operator narrative + experience timeline |
-| 03 | Projects | 6 production projects with stack, impact, links |
-| 04 | Skills | Primary stack grid + agentic AI specialism list |
-| 05 | Contact | Form (FormSubmit) + social links |
-
-## Local Development
+## Running Locally
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # production build
-npm run preview  # preview production build
+npm run dev
 ```
 
-## Design Decisions
+---
 
-- **Dark mode only** — matches the "builder/IDE" aesthetic, no toggle complexity.
-- **No emoji** — keeps the visual language technical and consistent.
-- **Inter + Space Grotesk + JetBrains Mono** — three-font system: body / display / code.
-- **Numbered sections (01-05)** — gives the page a navigable structure, like a CLI menu.
-- **Real project data only** — no Lorem ipsum, no fake testimonials.
-- **Impact bullets per project** — answers "what did this actually do?" not "what tech did you use?"
+## Updating Content
 
-## Deployment
+All text content and project data is in `src/data.js`. No need to touch any component files.
 
-Static build, deploys anywhere. Recommended: Vercel or Netlify with form submission proxy.
+**To add a project**, add an object to the `projects` array:
+
+```js
+{
+  id: "project-id",
+  gambar: ProyekN,
+  galeri: [ProyekN, "/assets/proyek/...jpg"],
+  nama: "Project Name",
+  role: "Role",
+  desk: "One-line description",
+  impact: ["thing built", "thing achieved"],
+  stack: ["Tech1", "Tech2"],
+  category: "Category",
+  links: { github: "https://...", demo: null },
+  featured: false   // true = top grid
+}
+```
+
+Other exports in `data.js`:
+- `stack` — tech icons in the Skills section
+- `aiSkills` — capabilities list
+- `experience` — timeline in About
+
+-
+
