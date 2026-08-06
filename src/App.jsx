@@ -106,7 +106,7 @@ const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
   return (
     <article
       ref={reveal.ref}
-      className={`group card min-w-[84vw] md:min-w-0 snap-center rounded-lg overflow-hidden flex flex-col ${reveal.cls} hover:-translate-y-1`}
+      className={`group card min-w-[72vw] md:min-w-0 snap-center rounded-lg overflow-hidden flex flex-col ${reveal.cls} hover:-translate-y-1`}
       style={reveal.style}
     >
       <div
@@ -431,12 +431,12 @@ const App = () => {
           </div>
 
           {/* Category filter tabs */}
-          <div className="flex flex-nowrap md:flex-wrap items-center justify-start md:justify-center gap-2 mb-8 md:mb-12 overflow-x-auto pb-2 md:pb-0 snap-x snap-mandatory scrollbar-none">
+          <div className="flex flex-col items-stretch gap-1.5 mb-8 md:mb-12 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-2">
             {projectTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setProjectTab(tab.id)}
-                className={`group inline-flex shrink-0 snap-start items-center gap-2 px-3.5 md:px-4 py-2 rounded-full border font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 ${projectTab === tab.id
+                className={`group inline-flex w-full md:w-auto items-center justify-center gap-2 px-3.5 md:px-4 py-2 rounded-full border font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 ${projectTab === tab.id
                   ? "border-accent-500/70 bg-accent-500/10 text-accent-400 shadow-[0_0_20px_-6px_rgba(168,85,247,0.5)]"
                   : "border-ink-800 text-ink-400 hover:border-accent-500/40 hover:text-ink-200"
                   }`}

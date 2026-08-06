@@ -79,14 +79,14 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-ink-950/90 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 md:p-8 bg-ink-950/90 backdrop-blur-md animate-fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className="relative w-full max-w-7xl bg-ink-900 border border-ink-800 rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-[calc(100vw-1rem)] sm:max-w-7xl bg-ink-900 border border-ink-800 rounded-xl overflow-hidden shadow-2xl flex flex-col max-h-[95vh] sm:max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Modal */}
@@ -135,12 +135,12 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
         </div>
 
         {/* Modal Main Body: 2-column layout (gallery left, info right) */}
-        <div className="flex-1 overflow-hidden flex flex-col lg:flex-row min-h-0">
+        <div className="flex-1 overflow-y-auto lg:overflow-hidden flex flex-col lg:flex-row min-h-0">
           {/* LEFT: Gallery Column */}
-          <div className="lg:w-[66%] lg:border-r border-ink-800 flex flex-col min-h-0 lg:overflow-y-auto p-3.5 sm:p-6 space-y-4">
+          <div className="w-full lg:w-[66%] lg:border-r border-ink-800 flex flex-col min-h-0 lg:overflow-y-auto p-3 sm:p-6 space-y-3 sm:space-y-4">
             {/* Main Image Lightbox Viewer dengan Touch Swipe Gesture */}
             <div
-              className="relative w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y shrink-0 lg:h-full"
+              className="relative aspect-[4/3] lg:aspect-auto w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y shrink-0 lg:h-full"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -179,12 +179,12 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
 
           {/* Thumbnails Row (if multiple images) */}
           {images.length > 1 && (
-            <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin">
+            <div className="flex items-center gap-2.5 overflow-x-auto pb-1.5 scrollbar-thin">
               {images.map((imgUrl, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`relative shrink-0 w-14 h-10 rounded-md overflow-hidden border-2 transition-all ${
+                  className={`relative shrink-0 w-12 h-9 sm:w-14 sm:h-10 rounded-md overflow-hidden border-2 transition-all ${
                     idx === currentIndex
                       ? "border-accent-400 scale-105 shadow-md shadow-accent-500/20 opacity-100"
                       : "border-ink-800 opacity-50 hover:opacity-100 hover:border-ink-600"
@@ -202,7 +202,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
           </div>
 
           {/* RIGHT: Info Column (scrollable independently) */}
-          <div className="lg:w-[34%] flex flex-col min-h-0 overflow-y-auto p-3.5 sm:p-6 space-y-4">
+          <div className="w-full lg:w-[34%] flex flex-col min-h-0 overflow-visible lg:overflow-y-auto border-t lg:border-t-0 border-ink-800 p-3 sm:p-6 space-y-4">
             {/* Project Info & Impact Details */}
             <div className="space-y-4">
               <div>
