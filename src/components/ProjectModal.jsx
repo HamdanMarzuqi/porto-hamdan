@@ -137,10 +137,10 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
         {/* Modal Main Body: 2-column layout (gallery left, info right) */}
         <div className="flex-1 overflow-hidden flex flex-col lg:flex-row min-h-0">
           {/* LEFT: Gallery Column */}
-          <div className="lg:w-[58%] lg:border-r border-ink-800 flex flex-col min-h-0 lg:overflow-y-auto p-3.5 sm:p-6 space-y-4">
+          <div className="lg:w-[62%] lg:border-r border-ink-800 flex flex-col min-h-0 lg:overflow-y-auto p-3.5 sm:p-6 space-y-4">
             {/* Main Image Lightbox Viewer dengan Touch Swipe Gesture */}
             <div
-              className="relative aspect-[16/10] w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y shrink-0"
+              className="relative aspect-[16/9] w-full bg-ink-950 rounded-lg border border-ink-800 overflow-hidden flex items-center justify-center group touch-pan-y shrink-0"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -184,7 +184,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`relative shrink-0 w-20 h-14 rounded-md overflow-hidden border-2 transition-all ${
+                  className={`relative shrink-0 w-14 h-10 rounded-md overflow-hidden border-2 transition-all ${
                     idx === currentIndex
                       ? "border-accent-400 scale-105 shadow-md shadow-accent-500/20 opacity-100"
                       : "border-ink-800 opacity-50 hover:opacity-100 hover:border-ink-600"
@@ -202,7 +202,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
           </div>
 
           {/* RIGHT: Info Column (scrollable independently) */}
-          <div className="lg:w-[42%] flex flex-col min-h-0 overflow-y-auto p-3.5 sm:p-6 space-y-4">
+          <div className="lg:w-[38%] flex flex-col min-h-0 overflow-y-auto p-3.5 sm:p-6 space-y-4">
             {/* Project Info & Impact Details */}
             <div className="space-y-4">
               <div>
