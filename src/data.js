@@ -338,18 +338,13 @@ export const stack = [
 
 export const aiSkills = [
   "Autonomous Agentic AI",
-  "Web Development",
   "Structured RAG",
-  "Frontend Development",
-  "Multi LLM Orchestration",
-  "Prompt Engineering",
-  "Human-in-the-Loop",
-  "Deployment",
+  "Multi-LLM Orchestration",
   "AI Function Calling",
-  "Whatsapp Automation",
+  "Human-in-the-Loop",
   "Anti-Hallucination Guardrails",
-  "Chrome Extensions",
-  "Real-time DOM Observation"
+  "WhatsApp Automation",
+  "Chrome Extensions"
 ];
 
 export const experience = [
