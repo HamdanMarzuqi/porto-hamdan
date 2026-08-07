@@ -24,6 +24,9 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // The custom IntersectionObserver hook intentionally exposes a ref callback.
+      // React Compiler's refs rule incorrectly flags this established pattern.
+      'react-hooks/refs': 'off',
     },
   },
 ])

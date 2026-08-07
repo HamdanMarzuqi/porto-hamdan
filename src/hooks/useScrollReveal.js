@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 /**
  * Reveal element when it enters the viewport.
@@ -14,11 +14,12 @@ import { useEffect, useRef, useState, useCallback } from "react";
  * - cls: ready-made className string (transition + show/hide)
  */
 export const useScrollReveal = ({ animation = "fade-up", delay = 0, threshold = 0.15 } = {}) => {
-  const ref = useRef(null);
+  const [element, setElement] = useState(null);
   const [visible, setVisible] = useState(false);
+  const ref = useCallback((node) => setElement(node), []);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = element;
     if (!el) return;
 
     const observer = new IntersectionObserver(
@@ -32,7 +33,7 @@ export const useScrollReveal = ({ animation = "fade-up", delay = 0, threshold = 
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [element, threshold]);
 
   const variants = {
     "fade-up":    { init: "opacity-0 translate-y-8",  show: "opacity-100 translate-y-0" },
@@ -60,11 +61,12 @@ export const useScrollReveal = ({ animation = "fade-up", delay = 0, threshold = 
  * Each child reveals with incrementing delay.
  */
 export const useStaggerReveal = (count, { animation = "fade-up", staggerMs = 80 } = {}) => {
-  const ref = useRef(null);
+  const [element, setElement] = useState(null);
   const [visible, setVisible] = useState(false);
+  const ref = useCallback((node) => setElement(node), []);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = element;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -77,7 +79,7 @@ export const useStaggerReveal = (count, { animation = "fade-up", staggerMs = 80 
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [element]);
 
   const variants = {
     "fade-up":    { init: "opacity-0 translate-y-8",  show: "opacity-100 translate-y-0" },

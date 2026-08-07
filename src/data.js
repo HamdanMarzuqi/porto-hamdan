@@ -1,19 +1,9 @@
 // Project data production projects, not dummy
-import Proyek1 from "/assets/proyek/proyek1.jpeg";
-import Proyek2 from "/assets/proyek/proyek2.jpg";
-import Proyek3 from "/assets/proyek/proyek3.jpg";
-import Proyek4 from "/assets/proyek/proyek4.jpg";
-import Proyek5 from "/assets/proyek/proyek5.jpeg";
-import Proyek6 from "/assets/proyek/Proyek6.jpeg";
-
-export const projects = [
-  {
-    id: "malika-pos",
-    group: "web",
-    gambar: Proyek1,
-    // Galeri screenshot produk & dashboard POS
-    galeri: [
-      Proyek1,
+const projectImages = {
+  malikaPos: {
+    cover: "/assets/proyek/proyek1.jpeg",
+    gallery: [
+      "/assets/proyek/proyek1.jpeg",
       "/assets/proyek/malika-pos/malika-pos-1.jpg",
       "/assets/proyek/malika-pos/malika-pos-2.jpg",
       "/assets/proyek/malika-pos/malika-pos-3.jpg",
@@ -21,7 +11,112 @@ export const projects = [
       "/assets/proyek/malika-pos/malika-pos-5.jpg",
       "/assets/proyek/malika-pos/malika-pos-6.jpg",
       "/assets/proyek/malika-pos/malika-pos-7.jpg"
-    ],
+    ]
+  },
+  hrThreads: {
+    cover: "/assets/proyek/proyek2.jpg",
+    gallery: [
+      "/assets/proyek/proyek2.jpg",
+      "/assets/proyek/hr-threads/hr-threads-1.jpg",
+      "/assets/proyek/hr-threads/hr-threads-2.jpg",
+      "/assets/proyek/hr-threads/hr-threads-3.jpg",
+      "/assets/proyek/hr-threads/hr-threads-4.jpg",
+      "/assets/proyek/hr-threads/hr-threads-5.jpg"
+    ]
+  },
+  dentalWa: {
+    cover: "/assets/proyek/proyek3.jpg",
+    gallery: [
+      "/assets/proyek/proyek3.jpg",
+      "/assets/proyek/dental-wa/dental-wa-1.jpg",
+      "/assets/proyek/dental-wa/dental-wa-2.jpg",
+      "/assets/proyek/dental-wa/dental-wa-3.jpg"
+    ]
+  },
+  waTranslator: {
+    cover: "/assets/proyek/proyek4.jpg",
+    gallery: [
+      "/assets/proyek/proyek4.jpg",
+      "/assets/proyek/wa-translator/wa-translator-1.jpg",
+      "/assets/proyek/wa-translator/wa-translator-2.jpg",
+      "/assets/proyek/wa-translator/wa-translator-3.jpg",
+      "/assets/proyek/wa-translator/wa-translator-4.jpg",
+      "/assets/proyek/wa-translator/wa-translator-5.jpg",
+      "/assets/proyek/wa-translator/wa-translator-6.jpg",
+      "/assets/proyek/wa-translator/wa-translator-7.jpg"
+    ]
+  },
+  sistemPakar: {
+    cover: "/assets/proyek/proyek5.jpeg",
+    gallery: [
+      "/assets/proyek/proyek5.jpeg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-1.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-2.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-3.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-4.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-5.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-6.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-7.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-8.jpg",
+      "/assets/proyek/sistem-pakar/sistem-pakar-9.jpg"
+    ]
+  },
+  hermesRouter: {
+    cover: "/assets/proyek/Proyek6.jpeg",
+    gallery: [
+      "/assets/proyek/Proyek6.jpeg",
+      "/assets/proyek/hermes-9router/hermes-9router-2.png",
+      "/assets/proyek/hermes-9router/hermes-9router-3.png",
+      "/assets/proyek/hermes-9router/hermes-9router-4.png",
+      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+    ]
+  },
+  streetwear: {
+    cover: "/assets/proyek/streetwear/streetwear-1.jpeg",
+    gallery: [
+      "/assets/proyek/streetwear/streetwear-1.jpeg",
+      "/assets/proyek/streetwear/streetwear-2.jpg",
+      "/assets/proyek/streetwear/streetwear-3.jpg"
+    ]
+  },
+  luminara: {
+    cover: "/assets/proyek/luminara/luminara-1.jpeg",
+    gallery: [
+      "/assets/proyek/luminara/luminara-1.jpeg"
+    ]
+  },
+  contentPlanner: {
+    cover: "/assets/proyek/content-planner/content-planner-1.jpeg",
+    gallery: [
+      "/assets/proyek/content-planner/content-planner-1.jpeg",
+      "/assets/proyek/content-planner/content-planner-2.jpeg",
+      "/assets/proyek/content-planner/content-planner-3.jpeg",
+      "/assets/proyek/content-planner/content-planner-4.jpeg"
+    ]
+  },
+  carRent: {
+      cover: "/assets/proyek/car-rent/car-rent-1.jpeg",
+      gallery: [
+        "/assets/proyek/car-rent/car-rent-1.jpeg"
+      ]
+    },
+  awsAffiliate: {
+    cover: "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
+    gallery: [
+      "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
+      "/assets/proyek/aws-affiliate/aws-affiliate-2.jpg",
+      "/assets/proyek/aws-affiliate/aws-affiliate-3.jpg"
+    ]
+  }
+};
+
+export const projects = [
+  {
+    id: "malika-pos",
+    group: "web",
+    gambar: projectImages.malikaPos.cover,
+    // Galeri screenshot produk & dashboard POS
+    galeri: projectImages.malikaPos.gallery,
     nama: "Malika Smart Booth POS System",
     role: "Full-Stack Developer & AI Integration",
     desk: "Production POS with AI function calling, 7 tools connecting Groq Llama 3.3 70B to live sales data, menu analytics, and natural-language ops queries. Serving real transactions.",
@@ -44,14 +139,9 @@ export const projects = [
   {
     id: "hr-threads",
     group: "ai",
-    gambar: Proyek2,
+    gambar: projectImages.hrThreads.cover,
     galeri: [
-      Proyek2,
-      "/assets/proyek/hr-threads/hr-threads-1.jpg",
-      "/assets/proyek/hr-threads/hr-threads-2.jpg",
-      "/assets/proyek/hr-threads/hr-threads-3.jpg",
-      "/assets/proyek/hr-threads/hr-threads-4.jpg",
-      "/assets/proyek/hr-threads/hr-threads-5.jpg"
+      ...projectImages.hrThreads.gallery
     ],
     nama: "HR Threads Agent",
     role: "Web Search-Augmented-Generation Architecture & AI Integration",
@@ -75,12 +165,9 @@ export const projects = [
   {
     id: "dental-wa",
     group: "ai",
-    gambar: Proyek3,
+    gambar: projectImages.dentalWa.cover,
     galeri: [
-      Proyek3,
-      "/assets/proyek/dental-wa/dental-wa-1.jpg",
-      "/assets/proyek/dental-wa/dental-wa-2.jpg",
-      "/assets/proyek/dental-wa/dental-wa-3.jpg"
+      ...projectImages.dentalWa.gallery
     ],
     nama: "Dental WhatsApp Chatbot",
     role: "Backend Developer",
@@ -102,16 +189,9 @@ export const projects = [
   {
     id: "wa-translator",
     group: "web",
-    gambar: Proyek4,
+    gambar: projectImages.waTranslator.cover,
     galeri: [
-      Proyek4,
-      "/assets/proyek/wa-translator/wa-translator-1.jpg",
-      "/assets/proyek/wa-translator/wa-translator-2.jpg",
-      "/assets/proyek/wa-translator/wa-translator-3.jpg",
-      "/assets/proyek/wa-translator/wa-translator-4.jpg",
-      "/assets/proyek/wa-translator/wa-translator-5.jpg",
-      "/assets/proyek/wa-translator/wa-translator-6.jpg",
-      "/assets/proyek/wa-translator/wa-translator-7.jpg"
+      ...projectImages.waTranslator.gallery
     ],
     nama: "WhatsApp Web Translator",
     role: "Frontend / Extension Dev",
@@ -133,18 +213,9 @@ export const projects = [
   {
     id: "sistem-pakar",
     group: "web",
-    gambar: Proyek5,
+    gambar: projectImages.sistemPakar.cover,
     galeri: [
-      Proyek5,
-      "/assets/proyek/sistem-pakar/sistem-pakar-1.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-2.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-3.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-4.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-5.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-6.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-7.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-8.jpg",
-      "/assets/proyek/sistem-pakar/sistem-pakar-9.jpg"
+      ...projectImages.sistemPakar.gallery
     ],
     nama: "Expert System for Heart Disease",
     role: "Research & Backend",
@@ -168,13 +239,9 @@ export const projects = [
   {
     id: "infra-router",
     group: "ai",
-    gambar: Proyek6,
+    gambar: projectImages.hermesRouter.cover,
     galeri: [
-      Proyek6,
-      "/assets/proyek/hermes-9router/hermes-9router-2.png",
-      "/assets/proyek/hermes-9router/hermes-9router-3.png",
-      "/assets/proyek/hermes-9router/hermes-9router-4.png",
-      "/assets/proyek/hermes-9router/hermes-9router-1.png"
+      ...projectImages.hermesRouter.gallery
     ],
     nama: "Hermes Agent + 9Router Integration",
     role: "AI Infrastructure & System Integration",
@@ -194,15 +261,11 @@ export const projects = [
     featured: false
   },
   {
-      id: "streetwear",
-      group: "web",
-      gambar: "/assets/proyek/streetwear/streetwear-1.jpg",
-      galeri: [
-        "/assets/proyek/streetwear/streetwear-1.jpg",
-        "/assets/proyek/streetwear/streetwear-2.jpg",
-        "/assets/proyek/streetwear/streetwear-3.jpg"
-      ],
-      nama: "StreetWear.co - E-Commerce Website",
+    id: "streetwear",
+    group: "web",
+    gambar: projectImages.streetwear.cover,
+    galeri: projectImages.streetwear.gallery,
+    nama: "StreetWear.co - E-Commerce Website",
     role: "AI & Fullstack Web Developer",
     desk: "Deployed a premium streetwear e-commerce platform with a Cyber-Brutalist aesthetic, built with Next.js 15 App Router, React 19, and TypeScript. It features interactive 3D animations, a real-time shopping cart system, JWT authentication, and payment gateway integrations with Stripe and PayPal.",
     impact: [
@@ -222,15 +285,11 @@ export const projects = [
   {
     id: "luminara",
     group: "web",
-    gambar: "/assets/proyek/luminara/luminara-1.jpg",
-    galeri: [
-      "/assets/proyek/luminara/luminara-1.jpg",
-      "/assets/proyek/luminara/luminara-2.jpg",
-      "/assets/proyek/luminara/luminara-3.jpg"
-    ],
+    gambar: projectImages.luminara.cover,
+    galeri: projectImages.luminara.gallery,
     nama: "Luminara Aesthetic Dental Clinic Website",
     role: "AI & Fullstack Web Developer",
-    desk: "Personal project: Deployed a React + Vite-based dental clinic profile website featuring multilingual support (ID/EN), an online booking system integrated with the WhatsApp API, and scroll animations implemented using the Intersection Observer API alone, without any additional libraries.",
+    desk: "Freelance project: Deployed a React + Vite-based dental clinic profile website featuring multilingual support (ID/EN), an online booking system integrated with the WhatsApp API, and scroll animations implemented using the Intersection Observer API alone, without any additional libraries.",
     impact: [
       "Built the Luminara Dental Clinic website using React 19 + Vite, implementing a component-based architecture with 12 modular sections (Hero, Treatments, Doctors, FAQ, etc.) (https://luminara-dental-clinic.vercel.app/)",
       "Implemented a multilingual system (Indonesian/English) using the React Context API and persistence via localStorage; all UI content switches languages in real time without a page reload.",
@@ -247,12 +306,8 @@ export const projects = [
   {
     id: "content-planner",
     group: "web",
-    gambar: "/assets/proyek/content-planner/content-planner-1.jpg",
-    galeri: [
-      "/assets/proyek/content-planner/content-planner-1.jpg",
-      "/assets/proyek/content-planner/content-planner-2.jpg",
-      "/assets/proyek/content-planner/content-planner-3.jpg"
-    ],
+    gambar: projectImages.contentPlanner.cover,
+    galeri: projectImages.contentPlanner.gallery,
     nama: "Content Generator Dashboard - Google Apps Script + Google Sheets Scheduling Tool",
     role: "Web Developer & Google Workspace Integration",
     desk: "Personal project: Pokémon Content Planner Dashboard, a social media content management web app with a retro pixel-art aesthetic, is built using Vanilla JS + Web Audio API, integrated directly into Google Sheets as a database via Google Apps Script, and runs as a web app or as an embedded modal within a spreadsheet.",
@@ -272,12 +327,8 @@ export const projects = [
   {
     id: "car-rent",
     group: "web",
-    gambar: "/assets/proyek/car-rent/car-rent-1.jpg",
-    galeri: [
-      "/assets/proyek/car-rent/car-rent-1.jpg",
-      "/assets/proyek/car-rent/car-rent-2.jpg",
-      "/assets/proyek/car-rent/car-rent-3.jpg"
-    ],
+    gambar: projectImages.carRent.cover,
+    galeri: projectImages.carRent.gallery,
     nama: "AlexandreCar Rent! - E-Commerce Website",
     role: "Web Developer",
     desk: "Personal Project: A modern car rental booking platform built with Next.js 16 App Router + TypeScript + Supabase (PostgreSQL), featuring a booking widget with real-time price estimates, Framer Motion spring physics animations, and REST API routes with Zod validation",
@@ -298,12 +349,8 @@ export const projects = [
   {
     id: "aws-affiliate",
     group: "ai",
-    gambar: "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
-    galeri: [
-      "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
-      "/assets/proyek/aws-affiliate/aws-affiliate-2.jpg",
-      "/assets/proyek/aws-affiliate/aws-affiliate-3.jpg"
-    ],
+    gambar: projectImages.awsAffiliate.cover,
+    galeri: projectImages.awsAffiliate.gallery,
     nama: "AWS Affiliate Threads Agent",
     role: "Web Search-Augmented-Generation Architecture & AI Integration",
     desk: "A Python-based autonomous AI agent that automatically generates Amazon affiliate copy (for the U.S. market) using the Google Gemini and Tavily APIs, publishes it to the Meta Threads API, and implements a human-in-the-loop review process via a Telegram bot",

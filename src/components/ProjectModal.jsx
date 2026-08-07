@@ -9,9 +9,8 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
   // Fallback ke project.gambar jika galeri kosong
   const images = project?.galeri && project.galeri.length > 0 ? project.galeri : [project?.gambar];
 
-  useEffect(() => {
-    setCurrentIndex(initialIndex);
-  }, [project, initialIndex]);
+  const activeIndex = Math.min(initialIndex, Math.max(images.length - 1, 0));
+  const displayedIndex = project ? currentIndex : activeIndex;
 
   // Lock body scroll saat modal terbuka
   useEffect(() => {
@@ -146,8 +145,8 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
               onTouchEnd={handleTouchEnd}
             >
             <img
-              src={images[currentIndex]}
-              alt={`${project.nama} screenshot ${currentIndex + 1}`}
+              src={images[displayedIndex]}
+              alt={`${project.nama} screenshot ${displayedIndex + 1}`}
               className="w-full h-full object-contain select-none transition-all duration-300 pointer-events-none"
             />
 
@@ -173,7 +172,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
 
             {/* Counter Badge */}
             <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-ink-950/80 backdrop-blur-sm border border-ink-800 rounded font-mono text-[11px] sm:text-xs text-ink-300">
-              {currentIndex + 1} / {images.length}
+              {displayedIndex + 1} / {images.length}
             </div>
           </div>
 

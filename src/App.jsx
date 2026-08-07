@@ -99,7 +99,7 @@ const useScrollToTop = () => {
 
 
 // ─── Project Card ───
-const ProjectCard = ({ project, featured = false, index, onOpenModal }) => {
+const ProjectCard = ({ project, index, onOpenModal }) => {
   const reveal = useScrollReveal({ animation: "fade-up", delay: Math.min(index * 80, 300) });
   const imageCount = project.galeri && project.galeri.length > 0 ? project.galeri.length : 1;
 
@@ -210,10 +210,18 @@ const App = () => {
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [projectTab, setProjectTab] = useState("all");
 
-  const aiProjects = projects.filter((p) => p.group === "ai");
-  const webProjects = projects.filter((p) => p.group === "web");
+  const sortByDemo = (projectList) =>
+    [...projectList].sort((a, b) => {
+      const aHasDemo = Boolean(a.links?.demo);
+      const bHasDemo = Boolean(b.links?.demo);
+      return Number(bHasDemo) - Number(aHasDemo);
+    });
+
+  const aiProjects = sortByDemo(projects.filter((p) => p.group === "ai"));
+  const webProjects = sortByDemo(projects.filter((p) => p.group === "web"));
+  const allProjects = sortByDemo(projects);
   const visibleProjects =
-    projectTab === "ai" ? aiProjects : projectTab === "web" ? webProjects : projects;
+    projectTab === "ai" ? aiProjects : projectTab === "web" ? webProjects : allProjects;
   const projectTabs = [
     { id: "all", label: "All Projects", count: projects.length },
     { id: "ai", label: "AI Agent & Automation", count: aiProjects.length },
@@ -357,7 +365,7 @@ const App = () => {
                 className={aboutText1.cls}
                 style={aboutText1.style}
               >
-                Having operated an F&B business for over 4 years while building software, I’ve learned that business operations and software engineering share the same core principle: <span className="text-ink-50">ship it, measure it, iterate it.</span>
+                Having operated an F&B business from 2021 to the present (2026) while building software, I’ve learned that business operations and software engineering share the same core principle: <span className="text-ink-50">ship it, measure it, iterate it.</span>
               </p>
               <p
                 ref={aboutText2.ref}
