@@ -1,6 +1,15 @@
 import { FiGithub, FiLinkedin, FiMail, FiArrowUpRight } from "react-icons/fi";
+import { useLanguage } from "../context/useLanguage.js";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  const footerLinks = [
+    ["#beranda", t.nav.dashboard],
+    ["#tentang", t.nav.about],
+    ["#proyek", t.nav.project],
+    ["#skills", t.nav.skills],
+    ["#kontak", t.nav.contact]
+  ];
   return (
     <footer className="mt-16">
       {/* Gradient divider instead of plain border */}
@@ -15,20 +24,14 @@ const Footer = () => {
               <span className="text-ink-400">dev</span>
             </a>
             <p className="mt-4 text-sm text-ink-400 leading-relaxed max-w-xs">
-              Building production-grade web apps and agentic AI systems. Open to opportunities.
+              {t.footer.description}
             </p>
           </div>
 
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest text-ink-500 mb-4">Navigate</h4>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-ink-500 mb-4">{t.footer.navigate}</h4>
             <ul className="space-y-2 text-sm">
-              {[
-                ["#beranda", "Dashboard"],
-                ["#tentang", "About"],
-                ["#proyek", "Project"],
-                ["#skills", "Skills"],
-                ["#kontak", "Contact"]
-              ].map(([href, label]) => (
+              {footerLinks.map(([href, label]) => (
                 <li key={href}>
                   <a href={href} className="text-ink-300 hover:text-accent-400 transition-colors">
                     {label}
@@ -39,7 +42,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-widest text-ink-500 mb-4">Connect</h4>
+            <h4 className="font-mono text-xs uppercase tracking-widest text-ink-500 mb-4">{t.footer.connect}</h4>
             <div className="flex flex-col gap-3">
               <a
                 href="https://github.com/HamdanMarzuqi"
@@ -78,7 +81,7 @@ const Footer = () => {
           </p>
           <p className="text-xs font-mono text-ink-500 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
-            Open to opportunities
+            {t.footer.status}
           </p>
         </div>
       </div>

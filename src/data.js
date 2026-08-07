@@ -95,11 +95,11 @@ const projectImages = {
     ]
   },
   carRent: {
-      cover: "/assets/proyek/car-rent/car-rent-1.jpeg",
-      gallery: [
-        "/assets/proyek/car-rent/car-rent-1.jpeg"
-      ]
-    },
+    cover: "/assets/proyek/car-rent/car-rent-1.jpeg",
+    gallery: [
+      "/assets/proyek/car-rent/car-rent-1.jpeg"
+    ]
+  },
   awsAffiliate: {
     cover: "/assets/proyek/aws-affiliate/aws-affiliate-1.jpg",
     gallery: [
@@ -129,7 +129,6 @@ export const projects = [
       "Managed daily operations at F&B outlets, from raw ingredient inventory and sales transactions to food service and customer communication."
     ],
     stack: ["Node.js", "Express", "SQLite", "Groq AI", "Chart.js", "Sheets API"],
-    category: "AI & Web POS System",
     links: {
       github: "https://github.com/HamdanMarzuqi/Malika-Kebab-Management-System",
       demo: null
@@ -155,7 +154,6 @@ export const projects = [
       "Deployed the system to Fly.io in a containerized environment with persistent volumes for SQLite and logs, along with a CI/CD pipeline via GitHub Actions."
     ],
     stack: ["Python", "Claude", "Gemini", "Tavily", "Telegram Bot", "Fly.io"],
-    category: "AI Automation Agent",
     links: {
       github: "https://github.com/HamdanMarzuqi/hr-threads-agent",
       demo: null
@@ -179,7 +177,6 @@ export const projects = [
       "Performed iterative prompt engineering and systematic bug fixes to minimize hallucinated responses including deterministic JS overrides for AI extraction and constraint injection in system prompts."
     ],
     stack: ["Node.js", "Groq AI", "Gemini", "whatsapp-web.js", "Sheets API"],
-    category: "AI & Chatbot",
     links: {
       github: "https://github.com/HamdanMarzuqi/Dental-appointment-scheduling",
       demo: null
@@ -203,7 +200,6 @@ export const projects = [
       "Workaround for the WhatsApp Lexical Editor and using a ClipboardEvent paste to populate the message input field, since execCommand is blocked by the WhatsApp React editor."
     ],
     stack: ["React 19", "Vite", "Tailwind", "CRXJS"],
-    category: "Frontend",
     links: {
       github: "https://github.com/HamdanMarzuqi/whatsapp-web-translator",
       demo: null
@@ -229,7 +225,6 @@ export const projects = [
       "Deployed to public hosting (sistempakarfc.eclipta.web.id)."
     ],
     stack: ["PHP", "MySQL", "Bootstrap 5"],
-    category: "Web Development",
     links: {
       github: "https://github.com/HamdanMarzuqi/Sistem-Pakar_FC",
       demo: null
@@ -253,7 +248,6 @@ export const projects = [
       "Applied system integration patterns: client (Telegram) ↔ agent framework (Hermes) ↔ proxy gateway (9Router) ↔ multi-provider LLM backend."
     ],
     stack: ["Hermes Agent", "9Router", "Telegram Bot", "Multi-LLM"],
-    category: "AI Infrastructure",
     links: {
       github: null,
       demo: null
@@ -275,7 +269,6 @@ export const projects = [
       "Designing a design system with Tailwind CSS (cyber-brutalist, dark mode), Framer Motion animations (3D tilt, glitch text), and Lenis smooth scrolling with a responsive UI."
     ],
     stack: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Zustand"],
-    category: "Web Development",
     links: {
       github: "https://github.com/HamdanMarzuqi/StreetWear.co_web",
       demo: "https://street-wear-co-web-9i8k.vercel.app/"
@@ -296,7 +289,6 @@ export const projects = [
       "Built an online booking feature that generates automatically formatted messages and redirects users to the Admin’s WhatsApp via the Deep Link API, complete with validation for Indonesian phone number formats (08xxx/+62), client-side form validation, and protection against duplicate submissions."
     ],
     stack: ["React 19", "Vite", "Tailwind CSS"],
-    category: "Web Development",
     links: {
       github: "https://github.com/HamdanMarzuqi/Luminara-Dental-Clinic",
       demo: "https://luminara-dental-clinic.vercel.app/"
@@ -317,7 +309,6 @@ export const projects = [
       "Design a retro pixel-art interface in the style of Pokémon games, with added sound effects for clicks, modal openings, and success chimes to combine gameplay and productivity, making it easy for users to manage their daily schedules."
     ],
     stack: ["Vanilla.js", "HTML/CSS", "Google Apps Script", "Google Sheets"],
-    category: "Tools & Web Development",
     links: {
       github: "https://github.com/HamdanMarzuqi/Content-Planner-Dashboard-Social-Media-Scheduling-Tool-",
       demo: "https://script.google.com/macros/s/AKfycbzYCvuOJYRNPDbBmewCUQTEAc_a4I3fSIWykxVLbhA_u9F7c7jRc7lJ0rRQkn250myX0A/exec"
@@ -339,7 +330,6 @@ export const projects = [
       "Design the user interface using Framer Motion for animations and the Tailwind CSS 4 design system—ensuring a responsive layout—and develop it with comprehensive documentation (PRD, architecture, schematics, security, design, and rules)."
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Zod"],
-    category: "Web Development",
     links: {
       github: "https://github.com/HamdanMarzuqi/AlexandreCar_Rent-_website",
       demo: "https://alexandre-car-rent-website.vercel.app/"
@@ -361,7 +351,6 @@ export const projects = [
       " Implementing compliance automation by automatically adding the #Ad tag (due to the U.S. market) to every Threads post and performing data searches via the Tavily API."
     ],
     stack: ["Python", "Telegram Bot API", "Meta Threads API", "Tavily", "LLM/ Gemini"],
-    category: "AI Automation Agent",
     links: {
       github: "https://github.com/HamdanMarzuqi/AWS-Affiliate-Threads-Agent",
       demo: null

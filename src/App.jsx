@@ -6,6 +6,7 @@ import { SiReact, SiNodedotjs, SiTailwindcss, SiPython, SiJavascript, SiExpress,
 import { projects, stack, aiSkills, experience } from "./data";
 import ProjectModal from "./components/ProjectModal.jsx";
 import HeroImage from "/assets/Hamdan_Red_Background.png";
+import { useLanguage } from "./context/useLanguage.js";
 
 // Custom SVG Icons for Antigravity IDE & Cursor AI Editor
 const CursorIcon = ({ size = 20, className = "" }) => (
@@ -99,7 +100,7 @@ const useScrollToTop = () => {
 
 
 // ─── Project Card ───
-const ProjectCard = ({ project, index, onOpenModal }) => {
+const ProjectCard = ({ project, index, onOpenModal, t }) => {
   const reveal = useScrollReveal({ animation: "fade-up", delay: Math.min(index * 80, 300) });
   const imageCount = project.galeri && project.galeri.length > 0 ? project.galeri.length : 1;
 
@@ -119,34 +120,30 @@ const ProjectCard = ({ project, index, onOpenModal }) => {
           loading="lazy"
           className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-500"
         />
-        <div className="absolute top-3 left-3 px-2 py-1 bg-ink-950/80 backdrop-blur-sm border border-ink-800 rounded font-mono text-[10px] uppercase tracking-widest text-accent-400">
-          {project.category}
-        </div>
-
         {/* Gallery Image Count Badge */}
         <div className="absolute top-3 right-3 px-2 py-1 bg-ink-950/80 backdrop-blur-sm border border-ink-800 rounded font-mono text-[10px] text-ink-300 flex items-center gap-1 opacity-90 group-hover:opacity-100 group-hover:border-accent-500/50 transition-all">
           <FiImage size={12} className="text-accent-400" />
-          <span>{imageCount} Foto</span>
+          <span>{imageCount} {t.projects.photos}</span>
         </div>
 
         {/* Hover overlay hint */}
         <div className="absolute inset-0 bg-ink-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2 text-ink-100 font-mono text-xs">
           <span className="px-3 py-1.5 bg-ink-950/90 border border-ink-700 rounded-md backdrop-blur-sm flex items-center gap-1.5 shadow-lg group-hover:scale-105 transition-transform">
             <FiMaximize2 size={13} className="text-accent-400" />
-            <span>View the picture</span>
+            <span>{t.projects.viewPicture}</span>
           </span>
         </div>
       </div>
 
       <div className="p-3.5 md:p-6 flex flex-col flex-1">
-        <div className="flex items-center justify-between gap-2 mb-2">
+        <div className="flex items-start justify-between gap-2 mb-2">
           <h3
-            className="text-base md:text-lg font-display font-semibold leading-tight text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer"
+            className="text-base md:text-lg font-display font-semibold leading-snug text-ink-50 group-hover:text-accent-400 transition-colors cursor-pointer line-clamp-2"
             onClick={() => onOpenModal(project)}
           >
             {project.nama}
           </h3>
-          <div className="flex items-center shrink-0 gap-1">
+          <div className="flex items-center shrink-0 gap-1 pt-0.5">
             {project.links?.demo && (
               <a
                 href={project.links.demo}
@@ -182,9 +179,9 @@ const ProjectCard = ({ project, index, onOpenModal }) => {
         <button
           onClick={() => onOpenModal(project)}
           className="inline-flex items-center gap-1.5 text-[11px] md:text-xs font-mono uppercase tracking-wider text-accent-400 hover:text-accent-300 transition-colors mb-3 md:mb-5 w-fit"
-          aria-label={`Read more about ${project.nama}`}
+          aria-label={`${t.projects.readMore} ${project.nama}`}
         >
-          Read More
+          {t.projects.readMore}
           <FiArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </button>
 
@@ -205,7 +202,8 @@ const ProjectCard = ({ project, index, onOpenModal }) => {
 
 // ─── App ───
 const App = () => {
-  const typed = useTypewriter(TYPED_WORDS);
+  const { language, t } = useLanguage();
+  const typed = useTypewriter(language === "id" ? ["Web Developer", "Penggemar Agentic AI & Otomasi"] : TYPED_WORDS);
   const { show: showScrollTop, scrollToTop } = useScrollToTop();
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [projectTab, setProjectTab] = useState("all");
@@ -223,9 +221,9 @@ const App = () => {
   const visibleProjects =
     projectTab === "ai" ? aiProjects : projectTab === "web" ? webProjects : allProjects;
   const projectTabs = [
-    { id: "all", label: "All Projects", count: projects.length },
-    { id: "ai", label: "AI Agent & Automation", count: aiProjects.length },
-    { id: "web", label: "Web Development", count: webProjects.length },
+    { id: "all", label: t.projects.all, count: projects.length },
+    { id: "ai", label: t.projects.ai, count: aiProjects.length },
+    { id: "web", label: t.projects.web, count: webProjects.length },
   ];
 
   // Scroll reveal each ref is attached to its own element
@@ -264,7 +262,7 @@ const App = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-8 border border-ink-800 rounded-full bg-ink-900/50 backdrop-blur-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
                 <span className="font-mono text-[11px] text-ink-300 uppercase tracking-widest">
-                  Open to opportunities
+                  {t.hero.availability}
                 </span>
               </div>
 
@@ -281,9 +279,7 @@ const App = () => {
               </div>
 
               <p className="text-base text-ink-400 leading-relaxed max-w-xl mb-10">
-                Fresh graduate from <span className="text-ink-200">Universitas 'Aisyiyah Yogyakarta</span>.
-                I build production full-stack web applications and integrate agentic AI systems that ship
-                to real users like POS System Website, content agents with human approval gate (telegram), chatbots, and many more
+                {t.hero.intro} <span className="text-ink-200">Universitas 'Aisyiyah Yogyakarta</span>{t.hero.introAfter}
               </p>
 
               <div className="flex flex-wrap items-center gap-3">
@@ -291,22 +287,22 @@ const App = () => {
                   href="#proyek"
                   className="group inline-flex items-center gap-2 px-5 py-2.5 bg-ink-50 text-ink-950 text-sm font-medium rounded-md hover:bg-accent-400 hover:text-ink-950 transition-all duration-300"
                 >
-                  <span>View projects</span>
+                  <span>{t.hero.viewProjects}</span>
                   <FiArrowDown className="transition-transform group-hover:translate-y-0.5" size={14} />
                 </a>
                 <a
                   href="#kontak"
                   className="inline-flex items-center gap-2 px-5 py-2.5 border border-ink-800 text-ink-200 text-sm font-medium rounded-md hover:border-accent-500/60 hover:text-accent-400 transition-all duration-300"
                 >
-                  <span>Get in touch</span>
+                  <span>{t.hero.getInTouch}</span>
                   <FiArrowUpRight size={14} />
                 </a>
               </div>
               <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
                 {[
-                  { num: "8+", label: "projects finished" },
-                  { num: "3+", label: "LLM providers integrated" },
-                  { num: "90.9%", label: "Thesis validation" }
+                  { num: "8+", label: t.hero.projectsFinished },
+                  { num: "3+", label: t.hero.providers },
+                  { num: "90.9%", label: t.hero.thesis }
                 ].map((s) => (
                   <div key={s.label} className="border-l border-ink-800 pl-3">
                     <div className="font-display text-2xl font-bold text-ink-50">{s.num}</div>
@@ -348,14 +344,14 @@ const App = () => {
             <div className="lg:col-span-4">
               <p className={`font-mono text-xs uppercase tracking-widest text-accent-400 mb-4 ${aboutSection.cls}`}
                 style={aboutSection.style}>
-                <span className="text-ink-500">02</span> — About
+                <span className="text-ink-500">02</span> — {t.about.label}
               </p>
               <h2
                 ref={aboutTitle.ref}
                 className={`font-display text-4xl md:text-5xl font-bold text-ink-50 leading-tight ${aboutTitle.cls}`}
                 style={aboutTitle.style}
               >
-                Builder mindset, operator experience.
+                {t.about.title}
               </h2>
             </div>
 
@@ -365,23 +361,21 @@ const App = () => {
                 className={aboutText1.cls}
                 style={aboutText1.style}
               >
-                Having operated an F&B business from 2021 to the present (2026) while building software, I’ve learned that business operations and software engineering share the same core principle: <span className="text-ink-50">ship it, measure it, iterate it.</span>
+                {t.about.p1}<span className="text-ink-50">{t.about.p1Strong}</span>
               </p>
               <p
                 ref={aboutText2.ref}
                 className={aboutText2.cls}
                 style={aboutText2.style}
               >
-                A graduate of Information Technology (GPA 3.56/4.00) with strong analytical and systematic thinking skills. Experienced in building full-stack web applications and integrating AI/LLM into production systems using Node.js, React, Python, REST APIs, and many more. A fast learner who is adaptable with proven ability to manage projects independently from concept to deployment. Highly motivated to continue developing, confident that my combination of technical skills and hands-on project experience makes me ready to make a real contribution as a Full-Stack Developer, Web Developer, or AI Engineer in a professional work environment.
+                {t.about.p2}
               </p>
               <p
                 ref={aboutText3.ref}
                 className={aboutText3.cls}
                 style={aboutText3.style}
               >
-                I think in systems. Every feature I build is a function, every function is a tool, every
-                tool connects to a real action. That's what <span className="text-accent-400">Agentic AI Integration</span> means
-                in practice.
+                {t.about.p3Before}<span className="text-accent-400">Agentic AI Integration</span>{t.about.p3After}
               </p>
 
               <div
@@ -418,12 +412,12 @@ const App = () => {
           >
             <div>
               <p className="font-mono text-xs uppercase tracking-widest text-accent-400 mb-4">
-                <span className="text-ink-500">03</span> — Selected work
+                <span className="text-ink-500">03</span> — {t.projects.label}
               </p>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-ink-50 leading-tight">
-                Practical solutions,
+                {t.projects.titleBefore}
                 <br />
-                <span className="text-gradient-accent">built to solve real problems.</span>
+                <span className="text-gradient-accent">{t.projects.titleAfter}</span>
               </h2>
             </div>
             <a
@@ -433,7 +427,7 @@ const App = () => {
               className="group inline-flex items-center gap-2 px-4 py-2 border border-ink-800 rounded-md text-sm text-ink-300 hover:border-accent-500/60 hover:text-accent-400 transition-all font-mono"
             >
               <FiGithub size={14} />
-              <span>all repos</span>
+              <span>{t.projects.allRepos}</span>
               <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={12} />
             </a>
           </div>
@@ -465,11 +459,12 @@ const App = () => {
             ))}
           </div>
 
-          <div key={projectTab} className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none -mx-4 px-4 md:mx-0 md:px-0">
+          <div key={projectTab} className="flex md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none -mx-4 px-4 md:mx-0 md:px-0">
             {visibleProjects.map((p, i) => (
               <ProjectCard
                 key={p.id}
                 project={p}
+                t={t}
                 index={i}
                 onOpenModal={(proj) => setActiveModalProject(proj)}
               />
@@ -491,27 +486,27 @@ const App = () => {
                 className={`font-mono text-xs uppercase tracking-widest text-accent-400 mb-4 ${skillsTitle.cls}`}
                 style={skillsTitle.style}
               >
-                <span className="text-ink-500">04</span> — Stack
+                <span className="text-ink-500">04</span> — {t.skills.label}
               </p>
               <h2
                 className={`font-display text-4xl md:text-5xl font-bold text-ink-50 leading-tight ${skillsTitle.cls}`}
                 style={skillsTitle.style}
               >
-                Tools, not toys.
+                {t.skills.title}
               </h2>
               <p
                 ref={skillsDesc.ref}
                 className={`mt-6 text-ink-400 leading-relaxed ${skillsDesc.cls}`}
                 style={skillsDesc.style}
               >
-                Technologies and frameworks I use to build functional AI integration system & web applications to solve real-world problems.
+                {t.skills.desc}
               </p>
             </div>
 
             <div className="lg:col-span-8 space-y-10">
               <div ref={skillsGrid.ref}>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-4 flex items-center gap-2">
-                  <FiServer size={12} /> Tech stack
+                  <FiServer size={12} /> {t.skills.tech}
                 </p>
                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
                   {stack.map((s, i) => {
@@ -536,7 +531,7 @@ const App = () => {
 
               <div ref={skillsAI.ref}>
                 <p className="font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-4 flex items-center gap-2">
-                  <FiCpu size={12} /> Technical Capabilities & AI Integration
+                  <FiCpu size={12} /> {t.skills.capabilities}
                 </p>
                 <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
                   {aiSkills.map((skill, i) => (
@@ -562,10 +557,10 @@ const App = () => {
                   <FiBox className="text-accent-500 mt-1 shrink-0" size={20} />
                   <div>
                     <p className="font-mono text-[10px] uppercase tracking-widest text-accent-400 mb-2">
-                      Current focus
+                      {t.skills.focus}
                     </p>
                     <p className="text-xs sm:text-base text-ink-200 leading-relaxed">
-                      Building autonomous AI agents with Human-in-the-Loop approval, web development, frontend development, Structured RAG, and multi-tool function calling. Currently exploring <span className="text-ink-50">LangGraph</span> multi-agent orchestration and expanding WhatsApp & POS automation into scalable AI workflows.
+                      {t.skills.focusText}
                     </p>
                   </div>
                 </div>
@@ -587,13 +582,13 @@ const App = () => {
             style={kontakHeader.style}
           >
             <p className="font-mono text-xs uppercase tracking-widest text-accent-400 mb-4">
-              <span className="text-ink-500">05</span> — Get in touch
+              <span className="text-ink-500">05</span> — {t.contact.label}
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-ink-50 leading-tight">
-              Have a system to build?
+              {t.contact.title}
             </h2>
             <p className="mt-4 text-ink-400 max-w-lg mx-auto">
-              Open to full-time roles in AI engineering, full-stack development, or contract work on agentic systems.
+              {t.contact.desc}
             </p>
           </div>
 
@@ -607,11 +602,11 @@ const App = () => {
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.057 21.785h-.004c-1.832 0-3.63-.493-5.205-1.428l-.373-.221-3.867 1.013 1.033-3.77-.243-.387a9.864 9.864 0 01-1.51-5.26c.002-5.45 4.436-9.884 9.889-9.884 2.641 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm0-19.78c-5.456 0-9.886 4.43-9.886 9.886 0 1.737.464 3.442 1.346 4.957l-1.43 5.235 5.358-1.405a9.78 9.78 0 004.61 1.165c5.456 0 9.886-4.43 9.886-9.886 0-2.641-1.027-5.122-2.892-6.989a9.83 9.83 0 00-6.992-2.963z" />
               </svg>
-              <span>Chat on WhatsApp</span>
+              <span>{t.contact.whatsapp}</span>
               <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={14} />
             </a>
             <span className="font-mono text-[10px] uppercase tracking-widest text-ink-600">
-              or use the form below
+              {t.contact.or}
             </span>
           </div>
 
@@ -628,14 +623,14 @@ const App = () => {
 
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <label className="block font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">Name</label>
+                <label className="block font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">{t.contact.name}</label>
                 <input
-                  type="text" name="nama" required placeholder="Your name"
+                  type="text" name="nama" required placeholder={t.contact.namePlaceholder}
                   className="w-full bg-transparent border-b border-ink-800 py-2 text-ink-100 placeholder-ink-600 focus:border-accent-500 focus:outline-none transition-colors"
                 />
               </div>
               <div>
-                <label className="block font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">Email</label>
+                <label className="block font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">{t.contact.email}</label>
                 <input
                   type="email" name="email" required placeholder="you@domain.com"
                   className="w-full bg-transparent border-b border-ink-800 py-2 text-ink-100 placeholder-ink-600 focus:border-accent-500 focus:outline-none transition-colors"
@@ -644,22 +639,22 @@ const App = () => {
             </div>
 
             <div>
-              <label className="block font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">Message</label>
+              <label className="block font-mono text-[10px] uppercase tracking-widest text-ink-500 mb-2">{t.contact.message}</label>
               <textarea
-                name="pesan" rows={4} required placeholder="Send me a message about anything..."
+                name="pesan" rows={4} required placeholder={t.contact.messagePlaceholder}
                 className="w-full bg-transparent border-b border-ink-800 py-2 text-ink-100 placeholder-ink-600 focus:border-accent-500 focus:outline-none transition-colors resize-none"
               ></textarea>
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
               <p className="font-mono text-[10px] uppercase tracking-widest text-ink-600">
-                Replies within 24h · Yogyakarta, GMT+7
+                {t.contact.reply}
               </p>
               <button
                 type="submit"
                 className="group inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-ink-50 text-ink-950 text-sm font-medium rounded-md hover:bg-accent-400 transition-all duration-300"
               >
-                <span>Send message</span>
+                <span>{t.contact.send}</span>
                 <FiArrowUpRight className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={14} />
               </button>
             </div>
@@ -680,6 +675,7 @@ const App = () => {
       <ProjectModal
         project={activeModalProject}
         onClose={() => setActiveModalProject(null)}
+        t={t}
       />
     </>
   );

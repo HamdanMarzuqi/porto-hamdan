@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FiX, FiChevronLeft, FiChevronRight, FiGithub, FiCheckCircle, FiExternalLink } from "react-icons/fi";
 
-const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
+const ProjectModal = ({ project, onClose, initialIndex = 0, t }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -91,9 +91,6 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
         {/* Header Modal */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-ink-800 bg-ink-950/60">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-ink-900 border border-ink-800 rounded font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-accent-400 shrink-0">
-              {project.category}
-            </span>
             <h2 id="modal-title" className="font-display font-bold text-base sm:text-lg text-ink-50 truncate">
               {project.nama}
             </h2>
@@ -109,7 +106,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
                 aria-label="Open live demo"
               >
                 <FiExternalLink size={13} />
-                <span>Live Demo</span>
+                <span>{t.modal.liveDemo}</span>
               </a>
             )}
             {project.links?.github && (
@@ -126,7 +123,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
             <button
               onClick={onClose}
               className="p-1.5 sm:p-2 text-ink-400 hover:text-ink-50 hover:bg-ink-800 rounded-lg transition-colors"
-              aria-label="Close modal"
+              aria-label={t.modal.close}
             >
               <FiX size={20} />
             </button>
@@ -156,14 +153,14 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
                 <button
                   onClick={handlePrev}
                   className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-full bg-ink-950/80 border border-ink-700 text-ink-100 hover:text-accent-400 hover:border-accent-500/50 transition-all opacity-80 hover:opacity-100 backdrop-blur-sm"
-                  aria-label="Previous screenshot"
+                  aria-label={t.modal.previous}
                 >
                   <FiChevronLeft size={20} />
                 </button>
                 <button
                   onClick={handleNext}
                   className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-full bg-ink-950/80 border border-ink-700 text-ink-100 hover:text-accent-400 hover:border-accent-500/50 transition-all opacity-80 hover:opacity-100 backdrop-blur-sm"
-                  aria-label="Next screenshot"
+                  aria-label={t.modal.next}
                 >
                   <FiChevronRight size={20} />
                 </button>
@@ -214,7 +211,7 @@ const ProjectModal = ({ project, onClose, initialIndex = 0 }) => {
             {project.impact && project.impact.length > 0 && (
               <div>
                 <h4 className="font-mono text-xs uppercase tracking-widest text-ink-400 mb-2">
-                  Highlights & Implementation:
+                  {t.modal.highlights}
                 </h4>
                 <ul className="space-y-2">{project.impact.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-ink-300 bg-ink-950/40 p-2.5 rounded border border-ink-800/50">

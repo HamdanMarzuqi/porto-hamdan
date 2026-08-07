@@ -29,7 +29,7 @@ export const useScrollReveal = ({ animation = "fade-up", delay = 0, threshold = 
           observer.unobserve(el);
         }
       },
-      { threshold }
+      { threshold, rootMargin: "0px 0px -10% 0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();

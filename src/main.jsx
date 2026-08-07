@@ -5,16 +5,19 @@ import App from "./App.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import PreLoader from "./components/PreLoader.jsx";
+import { LanguageProvider } from "./context/LanguageContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <PreLoader />
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1">
-        <App />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <PreLoader />
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">
+          <App />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   </StrictMode>
 );

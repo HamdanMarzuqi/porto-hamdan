@@ -1,15 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useLanguage } from "../context/useLanguage.js";
 
 const sections = [
-  { id: "beranda", label: "Dashboard", num: "01" },
-  { id: "tentang", label: "About", num: "02" },
-  { id: "proyek", label: "Project", num: "03" },
-  { id: "skills", label: "Skills", num: "04" },
-  { id: "kontak", label: "Contact", num: "05" }
+  { id: "beranda", key: "dashboard", num: "01" },
+  { id: "tentang", key: "about", num: "02" },
+  { id: "proyek", key: "project", num: "03" },
+  { id: "skills", key: "skills", num: "04" },
+  { id: "kontak", key: "contact", num: "05" }
 ];
 
 const Navbar = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -111,7 +113,7 @@ const Navbar = () => {
                     }`}
                 >
                   <span className="text-ink-600 mr-1.5">{s.num}</span>
-                  {s.label}
+                  {t.nav[s.key]}
                   <span
                     className={`absolute left-4 right-4 -bottom-0.5 h-px transition-all duration-300 ${active === s.id
                       ? "bg-accent-500 opacity-100"
@@ -122,6 +124,13 @@ const Navbar = () => {
               ))}
             </nav>
 
+            <div className="hidden md:inline-flex items-center gap-1 mr-2 p-0.5 border border-ink-800 rounded-md font-mono text-[10px] uppercase tracking-wider" aria-label="Select language">
+              {["en", "id"].map((code) => (
+                <button key={code} type="button" onClick={() => setLanguage(code)} className={`px-1.5 py-1 rounded transition-colors ${language === code ? "bg-accent-500/15 text-accent-400" : "text-ink-500 hover:text-ink-200"}`} aria-pressed={language === code}>
+                  {code.toUpperCase()}
+                </button>
+              ))}
+            </div>
             <a
               href="https://github.com/HamdanMarzuqi"
               target="_blank"
@@ -163,11 +172,19 @@ const Navbar = () => {
               >
                 <span className="font-mono text-xs text-ink-500">{s.num}</span>
                 <span className="text-2xl font-display font-semibold group-hover:text-accent-400 transition-colors">
-                  {s.label}
+                  {t.nav[s.key]}
                 </span>
               </a>
             ))}
           </nav>
+          <div className="mt-8 flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-500">
+            <span>{t.nav.language}</span>
+            {["en", "id"].map((code) => (
+              <button key={code} type="button" onClick={() => setLanguage(code)} className={`px-2.5 py-1.5 rounded border transition-colors ${language === code ? "border-accent-500/60 bg-accent-500/10 text-accent-400" : "border-ink-800 text-ink-400"}`} aria-pressed={language === code}>
+                {code.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </>
